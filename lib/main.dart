@@ -4,13 +4,13 @@ import 'package:rub_face/pages/menu_page.dart';
 import 'package:rub_face/pages/start_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const RubFace());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class RubFace extends StatelessWidget {
+  const RubFace({super.key});
 
-  // This widget is the root of your application.
+  // This widget is the root of your application.test
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/startPage': (context) => StartPage(),
         '/menuPage': (context) => MenuPage(),
-        '/festivalPage': (context) => FestivalPage(),
+        '/robotsPage': (context) => RobotsPage(),
       },
     );
   }
