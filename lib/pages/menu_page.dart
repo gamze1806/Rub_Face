@@ -20,7 +20,7 @@ class _MenuPageState extends State<MenuPage> {
         imagePath: "lib/images/japan7.png",
         price: "€ 49",
         rating: "5",
-        details: () => Navigator.pushNamed(context, '/festivalPage'),
+        details: () => Navigator.pushNamed(context, '/robotsPage'),
       ),
       EventTile(
         name: "Nudel Harmony Japan",
@@ -40,12 +40,12 @@ class _MenuPageState extends State<MenuPage> {
 
     return Scaffold(
       backgroundColor:
-          _isDarkMode ? Colors.black : Color.fromARGB(255, 215, 165, 187),
+          _isDarkMode ? Colors.black : Color.fromARGB(255, 33, 56, 93),
       appBar: AppBar(
         title: Text("J A P A N"),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        backgroundColor: Color.fromARGB(70, 255, 255, 255),
+        elevation: 4,
         leading: Icon(Icons.menu),
         actions: [
           IconButton(
@@ -61,131 +61,140 @@ class _MenuPageState extends State<MenuPage> {
             child: Icon(Icons.shopping_cart),
           )
         ],
+        toolbarHeight: 40,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: EdgeInsets.all(25),
-            margin: EdgeInsets.symmetric(horizontal: 25),
-            decoration: BoxDecoration(
-              color: const Color(0xffffb46c),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "32% Nachlass",
-                      style: TextStyle(fontSize: 22),
-                    ),
-                    SizedBox(height: 15),
-                    MyButton(
-                      myText: "Buchen",
-                      event: () {},
-                    )
-                  ],
-                ),
-                Image.asset(
-                  "lib/images/japan1.png",
-                  height: 135,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 15),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Suche Event",
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                    width: 2,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.all(25),
+              margin: EdgeInsets.symmetric(horizontal: 25),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "32% Nachlass",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 33, 56, 93),
+                        ),
+                      ),
+                      SizedBox(height: 15),
+                      MyButton(
+                        myText: "Buchen",
+                        event: () {},
+                      )
+                    ],
                   ),
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
+                  Image.asset(
+                    "lib/images/japan1.png",
+                    height: 135,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintStyle: TextStyle(color: Colors.white),
+                  hintText: "Suche Event",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: 13),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Text(
-              "Events",
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
+            SizedBox(height: 13),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Text(
+                "Events",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
             ),
-          ),
-          SizedBox(height: 5),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) => EventList[index],
-              itemCount: EventList.length,
-              scrollDirection: Axis.horizontal,
+            SizedBox(height: 5),
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: (context, index) => EventList[index],
+                itemCount: EventList.length,
+                scrollDirection: Axis.horizontal,
+              ),
             ),
-          ),
-          SizedBox(height: 25),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Text(
-              "Derzeit beliebt",
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
+            SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Text(
+                "Derzeit beliebt",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
             ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 25),
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 94, 185, 160),
-              borderRadius: BorderRadius.circular(20),
+            SizedBox(height: 10),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 25),
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 148, 173, 64),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset(
+                    "lib/images/japan2.png",
+                    height: 115,
+                  ),
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Kimono Kultur",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "€ 45",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset(
-                  "lib/images/japan2.png",
-                  height: 115,
-                ),
-                SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Kimono Kultur",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "€ 45",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-        ],
+            SizedBox(height: 10),
+          ],
+        ),
       ),
     );
   }
