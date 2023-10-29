@@ -6,9 +6,9 @@ class RobotsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 215, 165, 187),
+      backgroundColor: Color.fromARGB(255, 186, 197, 214),
       appBar: AppBar(
-        title: Text("J A P A N"),
+        title: Text("M A K E R S P A C E"),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -92,7 +92,7 @@ class RobotsPage extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(25),
             height: 200,
-            color: Color.fromARGB(255, 61, 91, 212),
+            color: Color.fromARGB(255, 33, 56, 93),
             child: Column(
               children: [
                 const Text(

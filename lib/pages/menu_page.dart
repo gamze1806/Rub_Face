@@ -44,7 +44,7 @@ class _MenuPageState extends State<MenuPage> {
       appBar: AppBar(
         title: Text("J A P A N"),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(70, 255, 255, 255),
+        backgroundColor: Color.fromARGB(255, 186, 197, 214),
         elevation: 4,
         leading: Icon(Icons.menu),
         actions: [
