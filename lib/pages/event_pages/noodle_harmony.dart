@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:rub_face/components/button.dart';
 import 'package:rub_face/models/cart_model.dart';
 
-class RobotsPage extends StatelessWidget {
-  const RobotsPage({super.key});
+class NoodleHarmonyPage extends StatelessWidget {
+  const NoodleHarmonyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class RobotsPage extends StatelessWidget {
           children: [
             Center(
               child: Image.asset(
-                'lib/images/japan7.png',
+                'lib/images/japan3.png',
                 height: 220,
               ),
             ),
@@ -51,7 +51,7 @@ class RobotsPage extends StatelessWidget {
                     size: 30,
                   ),
                   Text(
-                    "5,0",
+                    "3,0",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -64,7 +64,7 @@ class RobotsPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: const Text(
-                "Mitama Matsuri Festival",
+                "Noodle Harmony Japan",
                 style: TextStyle(
                   fontSize: 28,
                   color: Colors.white,
@@ -106,7 +106,7 @@ class RobotsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         const Text(
-                          "€49,00",
+                          "€18,00",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -121,13 +121,13 @@ class RobotsPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.removeFestival(),
+                                onPressed: () => cartModel.removeNudelSuppe(),
                                 icon: Icon(Icons.remove),
                               ),
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              cartModel.festival.toString(),
+                              cartModel.nudelsuppe.toString(),
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -141,7 +141,7 @@ class RobotsPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.addFestival(),
+                                onPressed: () => cartModel.addNudelSuppe(),
                                 icon: Icon(Icons.add),
                               ),
                             ),

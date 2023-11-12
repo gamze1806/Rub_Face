@@ -23,11 +23,11 @@ class _MenuPageState extends State<MenuPage> {
         details: () => Navigator.pushNamed(context, '/robotsPage'),
       ),
       EventTile(
-        name: "Nudel Harmony Japan",
+        name: "Noodle Harmony Japan",
         imagePath: "lib/images/japan3.png",
         price: "€ 18",
         rating: "4",
-        details: () {},
+        details: () => Navigator.pushNamed(context, '/noodleHarmonyPage'),
       ),
       EventTile(
         name: "Mount Fuji Tour",
@@ -42,7 +42,7 @@ class _MenuPageState extends State<MenuPage> {
       backgroundColor:
           _isDarkMode ? Colors.black : Color.fromARGB(255, 33, 56, 93),
       appBar: AppBar(
-        title: Text("J A P A N"),
+        title: Text("M A K E R S P A C E"),
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 186, 197, 214),
         elevation: 4,
@@ -58,7 +58,10 @@ class _MenuPageState extends State<MenuPage> {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
-            child: Icon(Icons.shopping_cart),
+            child: IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () => Navigator.pushNamed(context, '/cartPage'),
+            ),
           )
         ],
         toolbarHeight: 40,
