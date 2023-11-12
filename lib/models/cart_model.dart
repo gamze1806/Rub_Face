@@ -16,6 +16,11 @@ class CartModel extends ChangeNotifier {
     }
   }
 
+  void clearNudelSuppe() {
+    nudelsuppe = 0;
+    notifyListeners();
+  }
+
   void addFestival() {
     festival++;
     notifyListeners();
@@ -27,4 +32,11 @@ class CartModel extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  void clearFestival() {
+    festival = 0;
+    notifyListeners();
+  }
+
+  int get totalItems => nudelsuppe + festival;
 }
