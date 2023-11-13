@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rub_face/components/button.dart';
 import 'package:rub_face/components/event_tile.dart';
+import 'package:rub_face/models/cart_model.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -14,18 +16,20 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    CartModel cartModel =
+        Provider.of<CartModel>(context); // Zugriff auf CartModel
     List EventList = [
       EventTile(
         name: "Mitama Matsuri Festival",
         imagePath: "lib/images/japan7.png",
-        price: "€ 49",
+        price: "€ ${cartModel.festivalPrice}",
         rating: "5",
         details: () => Navigator.pushNamed(context, '/robotsPage'),
       ),
       EventTile(
         name: "Noodle Harmony Japan",
         imagePath: "lib/images/japan3.png",
-        price: "€ 18",
+        price: "€ ${cartModel.nudelPrice}",
         rating: "4",
         details: () => Navigator.pushNamed(context, '/noodleHarmonyPage'),
       ),
@@ -38,165 +42,168 @@ class _MenuPageState extends State<MenuPage> {
       )
     ];
 
-    return Scaffold(
-      backgroundColor:
-          _isDarkMode ? Colors.black : Color.fromARGB(255, 33, 56, 93),
-      appBar: AppBar(
-        title: Text("M A K E R S P A C E"),
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 186, 197, 214),
-        elevation: 4,
-        leading: Icon(Icons.menu),
-        actions: [
-          IconButton(
-            onPressed: () {
-              setState(() {
-                _isDarkMode = !_isDarkMode;
-              });
-            },
-            icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: IconButton(
-              icon: Icon(Icons.shopping_cart),
-              onPressed: () => Navigator.pushNamed(context, '/cartPage'),
+    return Consumer<CartModel>(
+      builder: (context, cartModel, child) => Scaffold(
+        backgroundColor:
+            _isDarkMode ? Colors.black : Color.fromARGB(255, 33, 56, 93),
+        appBar: AppBar(
+          title: Text("M A K E R S P A C E"),
+          centerTitle: true,
+          backgroundColor: Color.fromARGB(255, 186, 197, 214),
+          elevation: 4,
+          leading: Icon(Icons.menu),
+          actions: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  _isDarkMode = !_isDarkMode;
+                });
+              },
+              icon:
+                  _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
             ),
-          )
-        ],
-        toolbarHeight: 40,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.all(25),
-              margin: EdgeInsets.symmetric(horizontal: 25),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        "32% Nachlass",
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 33, 56, 93),
-                        ),
-                      ),
-                      SizedBox(height: 15),
-                      MyButton(
-                        myText: "Buchen",
-                        event: () {},
-                      )
-                    ],
-                  ),
-                  Image.asset(
-                    "lib/images/japan1.png",
-                    height: 135,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 15),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintStyle: TextStyle(color: Colors.white),
-                  hintText: "Suche Event",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 2,
+              padding: const EdgeInsets.only(right: 15.0),
+              child: IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () => Navigator.pushNamed(context, '/cartPage'),
+              ),
+            )
+          ],
+          toolbarHeight: 40,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.all(25),
+                margin: EdgeInsets.symmetric(horizontal: 25),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          "32% Nachlass",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 33, 56, 93),
+                          ),
+                        ),
+                        SizedBox(height: 15),
+                        MyButton(
+                          myText: "Buchen",
+                          event: () {},
+                        )
+                      ],
                     ),
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white,
+                    Image.asset(
+                      "lib/images/japan1.png",
+                      height: 135,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(color: Colors.white),
+                    hintText: "Suche Event",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 2,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 13),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Text(
-                "Events",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              SizedBox(height: 13),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Text(
+                  "Events",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-            ),
-            SizedBox(height: 5),
-            Expanded(
-              child: ListView.builder(
-                itemBuilder: (context, index) => EventList[index],
-                itemCount: EventList.length,
-                scrollDirection: Axis.horizontal,
+              SizedBox(height: 5),
+              Expanded(
+                child: ListView.builder(
+                  itemBuilder: (context, index) => EventList[index],
+                  itemCount: EventList.length,
+                  scrollDirection: Axis.horizontal,
+                ),
               ),
-            ),
-            SizedBox(height: 25),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Text(
-                "Derzeit beliebt",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              SizedBox(height: 25),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Text(
+                  "Derzeit beliebt",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 25),
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 148, 173, 64),
-                borderRadius: BorderRadius.circular(20),
+              SizedBox(height: 10),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 25),
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 148, 173, 64),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset(
+                      "lib/images/japan2.png",
+                      height: 115,
+                    ),
+                    SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Kimono Kultur",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "€ 45",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset(
-                    "lib/images/japan2.png",
-                    height: 115,
-                  ),
-                  SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Kimono Kultur",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "€ 45",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            SizedBox(height: 10),
-          ],
+              SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );

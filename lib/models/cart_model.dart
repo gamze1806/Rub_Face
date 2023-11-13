@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class CartModel extends ChangeNotifier {
   int nudelsuppe = 0;
+  int nudelPrice = 17;
   int festival = 0;
+  int festivalPrice = 49;
 
   void addNudelSuppe() {
     nudelsuppe++;
@@ -38,5 +40,12 @@ class CartModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  int totalPrice() {
+    int totalNudelPrice = nudelPrice * nudelsuppe;
+    int totalFestivalPrice = festivalPrice * festival;
+    return totalNudelPrice + totalFestivalPrice;
+  }
+
   int get totalItems => nudelsuppe + festival;
+  int get totalPriceString => totalPrice();
 }

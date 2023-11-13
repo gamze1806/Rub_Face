@@ -105,8 +105,8 @@ class RobotsPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Text(
-                          "€49,00",
+                        Text(
+                          "€${cartModel.festivalPrice}",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,

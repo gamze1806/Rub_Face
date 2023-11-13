@@ -105,8 +105,8 @@ class NoodleHarmonyPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Text(
-                          "€18,00",
+                        Text(
+                          "€${cartModel.nudelPrice}",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,

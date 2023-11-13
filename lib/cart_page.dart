@@ -35,7 +35,7 @@ class CartPage extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         subtitle: Text(
-                          "€18.00",
+                          "€${cartModel.nudelPrice}",
                           style: TextStyle(color: Colors.white),
                         ),
                         trailing: Row(
@@ -70,7 +70,7 @@ class CartPage extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         subtitle: Text(
-                          "€49.00",
+                          "€${cartModel.festivalPrice}",
                           style: TextStyle(color: Colors.white),
                         ),
                         trailing: Row(
@@ -100,20 +100,16 @@ class CartPage extends StatelessWidget {
                     ),
                     child: ListTile(
                       title: Text(
-                        "Menge der Events",
+                        "Menge der Events:                           ${cartModel.totalItems}",
                         style: TextStyle(color: Colors.white),
                       ),
                       subtitle: Text(
-                        cartModel.totalItems.toString(),
+                        "Gesamtpreis: ${cartModel.totalPriceString}",
                         style: TextStyle(color: Colors.white),
                       ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            cartModel.festival.toString(),
-                            style: TextStyle(color: Colors.white),
-                          ),
                           SizedBox(width: 10),
                           IconButton(
                             onPressed: () => cartModel.clearFestival(),
