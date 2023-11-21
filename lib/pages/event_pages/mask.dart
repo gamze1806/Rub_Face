@@ -36,7 +36,7 @@ class RobotsPage extends StatelessWidget {
           children: [
             Center(
               child: Image.asset(
-                'lib/images/japan7.png',
+                'lib/images/RM1.png',
                 height: 220,
               ),
             ),
@@ -64,7 +64,7 @@ class RobotsPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: const Text(
-                "Mitama Matsuri Festival",
+                "Mask of fire",
                 style: TextStyle(
                   fontSize: 28,
                   color: Colors.white,

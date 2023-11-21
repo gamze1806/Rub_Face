@@ -19,9 +19,9 @@ class EventTile extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 25),
       padding: EdgeInsets.all(8),
-      width: 200,
+      width: 190,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 148, 173, 64),
+        color: Color.fromARGB(255, 220, 223, 209),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -33,7 +33,8 @@ class EventTile extends StatelessWidget {
           ),
           Text(
             name,
-            style: TextStyle(fontSize: 18, color: Colors.white),
+            style:
+                TextStyle(fontSize: 18, color: Color.fromARGB(255, 33, 56, 93)),
           ),
           SizedBox(height: 10),
           Row(
@@ -41,13 +42,15 @@ class EventTile extends StatelessWidget {
             children: [
               Text(
                 price,
-                style: TextStyle(fontSize: 18, color: Colors.white),
+                style: TextStyle(
+                    fontSize: 18, color: Color.fromARGB(255, 33, 56, 93)),
               ),
               Row(
                 children: [
                   Text(
                     rating,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 14, color: Color.fromARGB(255, 33, 56, 93)),
                   ),
                   Icon(
                     Icons.star,

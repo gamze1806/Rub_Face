@@ -20,15 +20,15 @@ class _MenuPageState extends State<MenuPage> {
         Provider.of<CartModel>(context); // Zugriff auf CartModel
     List EventList = [
       EventTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
+        name: "Mask of fire",
+        imagePath: "lib/images/RM1.png",
         price: "€ ${cartModel.festivalPrice}",
         rating: "5",
         details: () => Navigator.pushNamed(context, '/robotsPage'),
       ),
       EventTile(
-        name: "Noodle Harmony Japan",
-        imagePath: "lib/images/japan3.png",
+        name: "Art of spirals",
+        imagePath: "lib/images/S1.png",
         price: "€ ${cartModel.nudelPrice}",
         rating: "4",
         details: () => Navigator.pushNamed(context, '/noodleHarmonyPage'),
@@ -49,7 +49,7 @@ class _MenuPageState extends State<MenuPage> {
         appBar: AppBar(
           title: Text("M A K E R S P A C E"),
           centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 186, 197, 214),
+          backgroundColor: Color.fromARGB(210, 186, 197, 214),
           elevation: 4,
           leading: Icon(Icons.menu),
           actions: [
@@ -105,7 +105,7 @@ class _MenuPageState extends State<MenuPage> {
                       ],
                     ),
                     Image.asset(
-                      "lib/images/japan1.png",
+                      "lib/images/M3.png",
                       height: 135,
                     ),
                   ],
@@ -155,7 +155,7 @@ class _MenuPageState extends State<MenuPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Text(
-                  "Derzeit beliebt",
+                  "Makerspace: Nice To Work!",
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -174,7 +174,7 @@ class _MenuPageState extends State<MenuPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Image.asset(
-                      "lib/images/japan2.png",
+                      "lib/images/M2.png",
                       height: 115,
                     ),
                     SizedBox(width: 10),
@@ -182,7 +182,7 @@ class _MenuPageState extends State<MenuPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Kimono Kultur",
+                          "Etwas Ruhe gewünscht?",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -190,7 +190,7 @@ class _MenuPageState extends State<MenuPage> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          "€ 45",
+                          "Chillout Room",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
