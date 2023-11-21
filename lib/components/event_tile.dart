@@ -19,7 +19,7 @@ class EventTile extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 25),
       padding: EdgeInsets.all(8),
-      width: 190,
+      width: 195,
       decoration: BoxDecoration(
         color: Color.fromARGB(255, 220, 223, 209),
         borderRadius: BorderRadius.circular(20),

@@ -39,6 +39,13 @@ class _MenuPageState extends State<MenuPage> {
         price: "€ 39",
         rating: "4,3",
         details: () {},
+      ),
+      EventTile(
+        name: "Mount Fuji Tour",
+        imagePath: "lib/images/japan6.png",
+        price: "€ 39",
+        rating: "4,3",
+        details: () {},
       )
     ];
 
@@ -117,7 +124,7 @@ class _MenuPageState extends State<MenuPage> {
                 child: TextField(
                   decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.white),
-                    hintText: "Suche Event",
+                    hintText: "Suche Produkt",
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.white,
@@ -136,7 +143,7 @@ class _MenuPageState extends State<MenuPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Text(
-                  "Events",
+                  "Produkte",
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
