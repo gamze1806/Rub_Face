@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rub_face/components/button.dart';
+import 'package:rub_face/components/event_page.dart';
 import 'package:rub_face/components/event_tile.dart';
 import 'package:rub_face/models/cart_model.dart';
 
@@ -22,30 +23,71 @@ class _MenuPageState extends State<MenuPage> {
       EventTile(
         name: "Mask of fire",
         imagePath: "lib/images/RM1.png",
-        price: "€ ${cartModel.festivalPrice}",
+        price: "49",
         rating: "5",
-        details: () => Navigator.pushNamed(context, '/robotsPage'),
+        details: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EventPage(
+                eventName: "Mask of fire",
+                imagePath: "lib/images/RM1.png",
+                description:
+                    "Egal ob für einen Maskenball oder Karnevall, unsere "
+                    '"Mask of fire"'
+                    " repräsentiert dich überall perfekt für den Anlass.",
+                price: "€ ${cartModel.festivalPrice}",
+                rating: '10',
+              ),
+            ),
+          );
+        },
       ),
       EventTile(
         name: "Art of spirals",
         imagePath: "lib/images/S1.png",
-        price: "€ ${cartModel.nudelPrice}",
-        rating: "4",
-        details: () => Navigator.pushNamed(context, '/noodleHarmonyPage'),
+        price: "49",
+        rating: "5",
+        details: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EventPage(
+                eventName: "Mask of fire",
+                imagePath: "lib/images/RM1.png",
+                description:
+                    "Egal ob für einen Maskenball oder Karnevall, unsere "
+                    '"Mask of fire"'
+                    " repräsentiert dich überall perfekt für den Anlass.",
+                price: "€ ${cartModel.festivalPrice}",
+                rating: '10',
+              ),
+            ),
+          );
+        },
       ),
       EventTile(
-        name: "Mount Fuji Tour",
-        imagePath: "lib/images/japan6.png",
-        price: "€ 39",
-        rating: "4,3",
-        details: () {},
-      ),
-      EventTile(
-        name: "Mount Fuji Tour",
-        imagePath: "lib/images/japan6.png",
-        price: "€ 39",
-        rating: "4,3",
-        details: () {},
+        name: "The queen of cat's",
+        imagePath: "lib/images/RM1.png",
+        price: "49",
+        rating: "5",
+        details: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EventPage(
+                eventName: "Mask of fire",
+                imagePath: "lib/images/RM1.png",
+                description:
+                    "Egal ob für einen Maskenball oder Karnevall, unsere "
+                    '"Mask of fire"'
+                    " repräsentiert dich überall perfekt für den Anlass.",
+                price: "€ ${cartModel.festivalPrice}",
+                rating: '10',
+              ),
+            ),
+          );
+        },
       )
     ];
 
