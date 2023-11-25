@@ -53,11 +53,6 @@ class EventPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Row(
               children: [
-                Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                  size: 30,
-                ),
                 Text(
                   rating,
                   style: TextStyle(
@@ -114,7 +109,7 @@ class EventPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        "€$price",
+                        "$price",
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,

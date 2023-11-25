@@ -53,13 +53,13 @@ class _MenuPageState extends State<MenuPage> {
             context,
             MaterialPageRoute(
               builder: (context) => EventPage(
-                eventName: "Mask of fire",
-                imagePath: "lib/images/RM1.png",
+                eventName: "Art of spirals",
+                imagePath: "lib/images/S1.pn",
                 description:
                     "Egal ob für einen Maskenball oder Karnevall, unsere "
                     '"Mask of fire"'
                     " repräsentiert dich überall perfekt für den Anlass.",
-                price: "€ ${cartModel.festivalPrice}",
+                price: "€ ${cartModel.nudelPrice}",
                 rating: '10',
               ),
             ),
@@ -76,7 +76,7 @@ class _MenuPageState extends State<MenuPage> {
             context,
             MaterialPageRoute(
               builder: (context) => EventPage(
-                eventName: "Mask of fire",
+                eventName: "The queen of cat's",
                 imagePath: "lib/images/RM1.png",
                 description:
                     "Egal ob für einen Maskenball oder Karnevall, unsere "
