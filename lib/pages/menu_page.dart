@@ -88,6 +88,13 @@ class _MenuPageState extends State<MenuPage> {
             ),
           );
         },
+      ),
+      EventTile(
+        name: "Mount Fuji Tour",
+        imagePath: "lib/images/japan6.png",
+        price: "€ ${cartModel.nudelPrice}",
+        rating: "4",
+        details: () => Navigator.pushNamed(context, '/noodleHarmonyPage'),
       )
     ];
 

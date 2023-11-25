@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rub_face/components/button.dart';
+import 'package:rub_face/models/cart_model.dart';
 
 class EventPage extends StatelessWidget {
   final String eventName;
@@ -17,130 +20,160 @@ class EventPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 186, 197, 214),
-      appBar: AppBar(
-        title: Text(eventName),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Icon(Icons.menu),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.dark_mode),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: IconButton(
-              icon: Icon(Icons.shopping_cart),
-              onPressed: () => Navigator.pushNamed(context, '/cartPage'),
+    return Consumer<CartModel>(
+      builder: (context, cartModel, child) => Scaffold(
+        backgroundColor: Color.fromARGB(255, 186, 197, 214),
+        appBar: AppBar(
+          title: Text("M A K E R S P A C E"),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Icon(Icons.menu),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.dark_mode),
             ),
-          )
-        ],
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Image.asset(
-              imagePath,
-              height: 220,
-            ),
-          ),
-          SizedBox(height: 25),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Row(
-              children: [
-                Text(
-                  rating,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Text(
-              eventName,
-              style: TextStyle(
-                fontSize: 28,
-                color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () => Navigator.pushNamed(context, '/cartPage'),
+              ),
+            )
+          ],
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Image.asset(
+                imagePath,
+                height: 220,
               ),
             ),
-          ),
-          const SizedBox(height: 15),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: const Text(
-              "Das erwartet Sie",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Text(
-              description,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                height: 1.5,
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(25),
-              color: Color.fromARGB(255, 33, 56, 93),
-              child: Column(
+            SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        "$price",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.star,
-                            color: Colors.amber,
-                            size: 20,
-                          ),
-                          Text(
-                            rating,
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      // Hier können spezifische Aktionen für jedes Event hinzugefügt werden
-                    ],
+                  Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                    size: 20,
                   ),
-                  // Weitere spezifische Widgets oder Aktionen
+                  Text(
+                    rating,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  )
                 ],
               ),
             ),
-          ),
-        ],
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Text(
+                eventName,
+                style: TextStyle(
+                  fontSize: 28,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: const Text(
+                "Das erwartet Sie",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Text(
+                description,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  height: 1.5,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(25),
+                color: Color.fromARGB(255, 33, 56, 93),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "$price",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: IconButton(
+                                onPressed: () => cartModel.removeNudelSuppe(),
+                                icon: Icon(Icons.remove),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              cartModel.festival.toString(),
+                              style: const TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: IconButton(
+                                onPressed: () => cartModel.addFestival(),
+                                icon: Icon(Icons.add),
+                              ),
+                            ),
+                          ],
+                        )
+                        // Hier können spezifische Aktionen für jedes Event hinzugefügt werden
+                      ],
+                    ),
+                    // Weitere spezifische Widgets oder Aktionen
+                    const SizedBox(height: 30),
+                    MyButton(
+                      myText: "Zum Einkaufswagen",
+                      event: () => Navigator.pushNamed(context, '/cartPage'),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
