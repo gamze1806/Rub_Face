@@ -238,7 +238,7 @@ class _MenuPageState extends State<MenuPage> {
       EventTile(
         name: "Mask of fire",
         imagePath: "lib/images/RM1.png",
-        price: "49",
+        price: "€${cartModel.festivalPrice}",
         rating: "5",
         details: () {
           Navigator.push(
@@ -253,6 +253,8 @@ class _MenuPageState extends State<MenuPage> {
                     " repräsentiert dich überall perfekt für den Anlass.",
                 price: "€ ${cartModel.festivalPrice}",
                 rating: '10',
+                //addProduct: cartModel.addNudelSuppe,
+                removeProduct: cartModel.removeNudelSuppe,
               ),
             ),
           );
@@ -261,21 +263,23 @@ class _MenuPageState extends State<MenuPage> {
       EventTile(
         name: "Art of spirals",
         imagePath: "lib/images/S1.png",
-        price: "49",
+        price: "€17",
         rating: "5",
         details: () {
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => EventPage(
-                eventName: "Art of spirals",
-                imagePath: "lib/images/S1.pn",
+                eventName: "Mask of fire",
+                imagePath: "lib/images/S1.png",
                 description:
                     "Egal ob für einen Maskenball oder Karnevall, unsere "
                     '"Mask of fire"'
                     " repräsentiert dich überall perfekt für den Anlass.",
                 price: "€ ${cartModel.nudelPrice}",
                 rating: '10',
+                //addProduct: cartModel.addFestival,
+                removeProduct: cartModel.removeFestival,
               ),
             ),
           );
@@ -299,6 +303,8 @@ class _MenuPageState extends State<MenuPage> {
                     " repräsentiert dich überall perfekt für den Anlass.",
                 price: "€ ${cartModel.festivalPrice}",
                 rating: '10',
+                //addProduct: cartModel.addNudelSuppe,
+                removeProduct: cartModel.removeNudelSuppe,
               ),
             ),
           );
@@ -438,7 +444,7 @@ class _MenuPageState extends State<MenuPage> {
                 margin: EdgeInsets.symmetric(horizontal: 25),
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 148, 173, 64),
+                  color: Color.fromARGB(210, 186, 197, 214),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(

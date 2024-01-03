@@ -4,7 +4,7 @@ class CartModel extends ChangeNotifier {
   int nudelsuppe = 0;
   int nudelPrice = 17;
   int festival = 0;
-  int festivalPrice = 49;
+  int festivalPrice = 39;
 
   void addNudelSuppe() {
     nudelsuppe++;
@@ -38,6 +38,14 @@ class CartModel extends ChangeNotifier {
   void clearFestival() {
     festival = 0;
     notifyListeners();
+  }
+
+  void addProduct(name) {
+    if (name == "Mask of fire") {
+      addNudelSuppe();
+    } else if (name == "Art of spirals") {
+      addFestival();
+    }
   }
 
   int totalPrice() {

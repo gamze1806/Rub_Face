@@ -9,6 +9,8 @@ class EventPage extends StatelessWidget {
   final String description;
   final String price;
   final String rating;
+  //final Function addProduct;
+  final Function removeProduct;
 
   const EventPage({
     required this.eventName,
@@ -16,6 +18,8 @@ class EventPage extends StatelessWidget {
     required this.description,
     required this.price,
     required this.rating,
+    //required this.addProduct,
+    required this.removeProduct,
   });
 
   @override
@@ -133,7 +137,7 @@ class EventPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.removeNudelSuppe(),
+                                onPressed: () => removeProduct(),
                                 icon: Icon(Icons.remove),
                               ),
                             ),
@@ -153,7 +157,8 @@ class EventPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.addFestival(),
+                                onPressed: () =>
+                                    cartModel.addProduct(eventName),
                                 icon: Icon(Icons.add),
                               ),
                             ),
