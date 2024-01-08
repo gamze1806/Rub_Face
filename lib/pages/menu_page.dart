@@ -259,6 +259,7 @@ class _MenuPageState extends State<MenuPage> {
             ),
           );
         },
+        onAddToCart: () => cartModel.addNudelSuppe(),
       ),
       EventTile(
         name: "Art of spirals",
@@ -428,7 +429,7 @@ class _MenuPageState extends State<MenuPage> {
                   scrollDirection: Axis.horizontal,
                 ),
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 8),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Text(

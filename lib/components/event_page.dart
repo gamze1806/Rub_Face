@@ -157,8 +157,8 @@ class EventPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () =>
-                                    cartModel.addProduct(eventName),
+                                onPressed: () => cartModel.addNudelSuppe(),
+                                //cartModel.addProduct(eventName),
                                 icon: Icon(Icons.add),
                               ),
                             ),
