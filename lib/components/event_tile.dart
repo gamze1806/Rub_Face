@@ -4,7 +4,7 @@ class EventTile extends StatelessWidget {
   final String name, imagePath;
   final String price, rating;
   final void Function()? details;
-  final VoidCallback? onAddToCart;
+  //final VoidCallback? onAddToCart;
 
   const EventTile({
     super.key,
@@ -13,7 +13,7 @@ class EventTile extends StatelessWidget {
     required this.price,
     required this.rating,
     this.details,
-    this.onAddToCart,
+    //this.onAddToCart,
   });
 
   @override
@@ -28,11 +28,11 @@ class EventTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: GestureDetector(
-        onTap: () {
+        /*onTap: () {
           if (onAddToCart != null) {
             onAddToCart!();
           }
-        },
+        },*/
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

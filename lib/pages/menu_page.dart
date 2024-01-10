@@ -259,7 +259,7 @@ class _MenuPageState extends State<MenuPage> {
             ),
           );
         },
-        onAddToCart: () => cartModel.addNudelSuppe(),
+        //onAddToCart: () => cartModel.addNudelSuppe(),
       ),
       EventTile(
         name: "Art of spirals",

@@ -10,7 +10,7 @@ class EventPage extends StatelessWidget {
   final String price;
   final String rating;
   //final Function addProduct;
-  final Function removeProduct;
+  final VoidCallback? removeProduct;
 
   const EventPage({
     required this.eventName,
@@ -91,7 +91,7 @@ class EventPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: const Text(
-                "Das erwartet Sie",
+                "Das erwartet Sieeee",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -137,13 +137,13 @@ class EventPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => removeProduct(),
+                                onPressed: () => removeProduct,
                                 icon: Icon(Icons.remove),
                               ),
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              cartModel.festival.toString(),
+                              cartModel.nudelsuppe.toString(),
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
