@@ -17,7 +17,7 @@ class CartPage extends StatelessWidget {
           elevation: 4,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 25.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
           child: Column(
             children: [
               Expanded(

@@ -39,6 +39,13 @@ class _MenuPageState extends State<MenuPage> {
         price: "€ ${cartModel.catPrice}",
         rating: "4",
         details: () => Navigator.pushNamed(context, '/catPage'),
+      ),
+      EventTile(
+        name: "Spider's magic",
+        imagePath: "lib/images/SP1.png",
+        price: "€ ${cartModel.spiderPrice}",
+        rating: "4,5",
+        details: () => Navigator.pushNamed(context, '/spiderPage'),
       )
     ];
 
@@ -105,7 +112,7 @@ class _MenuPageState extends State<MenuPage> {
                       ],
                     ),
                     Image.asset(
-                      "lib/images/M3.png",
+                      "lib/images/SP1.png",
                       height: 135,
                     ),
                   ],

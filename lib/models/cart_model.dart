@@ -7,6 +7,8 @@ class CartModel extends ChangeNotifier {
   int spiralPrice = 23;
   int cat = 1;
   int catPrice = 9;
+  int spider = 1;
+  int spiderPrice = 25;
 
   void addProduct(int i) {
     if (i == 0) {
@@ -18,6 +20,9 @@ class CartModel extends ChangeNotifier {
     } else if (i == 2) {
       cat++;
       notifyListeners();
+    } else if (i == 3) {
+      spider++;
+      notifyListeners();
     }
   }
 
@@ -27,16 +32,19 @@ class CartModel extends ChangeNotifier {
         mask--;
         notifyListeners();
       }
-    }
-    if (i == 1) {
+    } else if (i == 1) {
       if (spiral > 1) {
         spiral--;
         notifyListeners();
       }
-    }
-    if (i == 2) {
+    } else if (i == 2) {
       if (cat > 1) {
         cat--;
+        notifyListeners();
+      }
+    } else if (i == 3) {
+      if (cat > 1) {
+        spider--;
         notifyListeners();
       }
     }
@@ -46,13 +54,14 @@ class CartModel extends ChangeNotifier {
     if (i == 0) {
       mask = 0;
       notifyListeners();
-    }
-    if (i == 1) {
+    } else if (i == 1) {
       spiral = 0;
       notifyListeners();
-    }
-    if (i == 2) {
+    } else if (i == 2) {
       cat = 0;
+      notifyListeners();
+    } else if (i == 3) {
+      spider = 0;
       notifyListeners();
     }
   }
@@ -61,9 +70,10 @@ class CartModel extends ChangeNotifier {
     int totalMaskPrice = maskPrice * mask;
     int totalSpiralPrice = spiralPrice * spiral;
     int totalCatPrice = catPrice * cat;
-    return totalMaskPrice + totalSpiralPrice + totalCatPrice;
+    int totalSpiderPrice = spiderPrice * spider;
+    return totalMaskPrice + totalSpiralPrice + totalCatPrice + totalSpiderPrice;
   }
 
-  int get totalItems => mask + spiral + cat;
+  int get totalItems => mask + spiral + cat + spider;
   int get totalPriceString => totalPrice();
 }

@@ -46,7 +46,7 @@ class _StartPageState extends State<StartPage> {
             SizedBox(height: 15),
             Center(
               child: Image.asset(
-                "lib/images/M1.png",
+                "lib/images/M5.png",
                 height: 450,
               ),
             ),

@@ -1,3 +1,6 @@
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class CustomPage extends StatelessWidget {
@@ -25,19 +28,43 @@ class CustomPage extends StatelessWidget {
           )
         ],
       ),
-      body: ListView(
+      body: Stack(
+        fit: StackFit.expand,
         children: [
-          CustomWidget(
-            imagePath: "lib/images/M5.png",
-            title: "Kurze Pause mit der Gruppe gewünscht?",
+          Transform.rotate(
+            angle: 45 * (pi / 1), // Rotationswinkel in Grad
+            child: Image.asset(
+              "lib/images/BG4.png", // Pfad zu deinem Hintergrundbild
+              fit: BoxFit.cover,
+            ),
           ),
-          CustomWidget(
-            imagePath: "lib/images/M7.png",
-            title: "Ungestört arbeiten mit tollem Aussicht!",
+          // Verblasenes Hintergrundbild
+          ImageFiltered(
+            imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            child: Container(
+              color:
+                  Colors.white.withOpacity(0.7), // Verblasste Hintergrundfarbe
+            ),
           ),
-          CustomWidget(
-            imagePath: "lib/images/M6.png",
-            title: "Mal anders als sonst..",
+          ListView(
+            children: [
+              CustomWidget(
+                imagePath: "lib/images/M5.png",
+                title: "Kurze Pause mit der Gruppe gewünscht?",
+              ),
+              CustomWidget(
+                imagePath: "lib/images/M2.png",
+                title: "Privatsphäre in der Pause gewünscht?",
+              ),
+              CustomWidget(
+                imagePath: "lib/images/M7.png",
+                title: "Ungestört arbeiten mit tollem Aussicht!",
+              ),
+              CustomWidget(
+                imagePath: "lib/images/M6.png",
+                title: "Mal anders als sonst..",
+              ),
+            ],
           ),
         ],
       ),
@@ -54,29 +81,33 @@ class CustomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.0),
-      padding: EdgeInsets.all(16.0),
+      margin: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        border: Border.all(
+          /*border: Border.all(
           color: Color.fromARGB(255, 148, 173, 64),
           width: 5,
         ),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
+        borderRadius: BorderRadius.circular(8.0),*/
+          ),
       child: Column(
         children: [
-          Image.asset(
-            imagePath,
-            height: 400,
-            width: 400,
-          ),
-          SizedBox(height: 8.0),
-          Text(
-            title,
-            style: TextStyle(
+          Container(
+            color: Color.fromARGB(142, 191, 204, 224),
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              title,
+              style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 33, 56, 93)),
+                color: Color.fromARGB(255, 33, 56, 93),
+              ),
+            ),
+          ),
+          Image.asset(
+            imagePath,
+            height: 450,
+            width: 450,
           ),
         ],
       ),
