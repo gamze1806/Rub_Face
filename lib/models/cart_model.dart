@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CartModel extends ChangeNotifier {
-  int mask = 0;
+  int mask = 1;
   int maskPrice = 18;
-  int spiral = 0;
+  int spiral = 1;
   int spiralPrice = 23;
-  int cat = 0;
+  int cat = 1;
   int catPrice = 9;
 
   void addProduct(int i) {
@@ -23,19 +23,19 @@ class CartModel extends ChangeNotifier {
 
   void removeProduct(int i) {
     if (i == 0) {
-      if (mask > 0) {
+      if (mask > 1) {
         mask--;
         notifyListeners();
       }
     }
     if (i == 1) {
-      if (spiral > 0) {
+      if (spiral > 1) {
         spiral--;
         notifyListeners();
       }
     }
     if (i == 2) {
-      if (cat > 0) {
+      if (cat > 1) {
         cat--;
         notifyListeners();
       }

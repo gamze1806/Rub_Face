@@ -51,7 +51,7 @@ class CatPage extends StatelessWidget {
                     size: 30,
                   ),
                   Text(
-                    "5,0",
+                    "4,0",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -87,7 +87,10 @@ class CatPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: const Text(
-                "Das Mitama Matsuri Festival in Tokyo beeindruckt mit Tausenden von leuchtenden Laternen, die den Yasukuni-Schrein erhellen und den Geistern der Kriegsopfer gewidmet sind. Besucher können traditionelle Darbietungen genießen, köstliches japanisches Streetfood probieren und an spirituellen Zeremonien teilnehmen ",
+                "Die"
+                '"Queen der Katzen"'
+                " zu besitzen muss doch eine Besonderheit sein."
+                " Sowohl als Deko in deinem Regal oder auch als Spielzeug ist diese Katze immer ein Hingucker.",
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.white,

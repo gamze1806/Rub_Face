@@ -4,6 +4,7 @@ import 'package:rub_face/cart_page.dart';
 import 'package:rub_face/models/cart_model.dart';
 import 'package:rub_face/pages/event_pages/cat.dart';
 import 'package:rub_face/pages/event_pages/mask.dart';
+import 'package:rub_face/pages/event_pages/rooms.dart';
 import 'package:rub_face/pages/event_pages/spiral.dart';
 import 'package:rub_face/pages/menu_page.dart';
 import 'package:rub_face/pages/start_page.dart';
@@ -32,6 +33,7 @@ class RubFace extends StatelessWidget {
         '/maskPage': (context) => RobotsPage(),
         '/spiralPage': (context) => ArtOfSpirals(),
         '/catPage': (context) => CatPage(),
+        '/customPage': (context) => CustomPage(),
         '/cartPage': (context) => CartPage(),
       },
     );

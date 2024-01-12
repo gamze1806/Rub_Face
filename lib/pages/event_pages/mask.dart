@@ -89,7 +89,9 @@ class RobotsPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: const Text(
-                "Das Mitama Matsuri Festival in Tokyo beeindruckt mit Tausenden von leuchtenden Laternen, die den Yasukuni-Schrein erhellen und den Geistern der Kriegsopfer gewidmet sind. Besucher können traditionelle Darbietungen genießen, köstliches japanisches Streetfood probieren und an spirituellen Zeremonien teilnehmen ",
+                "Egal ob für einen Maskenball oder Karnevall, unsere "
+                '"Mask of fire"'
+                " repräsentiert dich überall perfekt für den Anlass.",
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.white,

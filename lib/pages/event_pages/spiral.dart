@@ -51,7 +51,7 @@ class ArtOfSpirals extends StatelessWidget {
                     size: 30,
                   ),
                   Text(
-                    "3,0",
+                    "4,5",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -64,7 +64,7 @@ class ArtOfSpirals extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: const Text(
-                "Noodle Harmony Japan",
+                "Art of spirals",
                 style: TextStyle(
                   fontSize: 28,
                   color: Colors.white,
@@ -87,7 +87,9 @@ class ArtOfSpirals extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: const Text(
-                "Das Mitama Matsuri Festival in Tokyo beeindruckt mit Tausenden von leuchtenden Laternen, die den Yasukuni-Schrein erhellen und den Geistern der Kriegsopfer gewidmet sind. Besucher können traditionelle Darbietungen genießen, köstliches japanisches Streetfood probieren und an spirituellen Zeremonien teilnehmen ",
+                "Für die Wohnung als Deko oder im Büro als Basketballkorb, unsere "
+                '"Spiral Vase"'
+                " zeigt ihre Einzigartige Vielfalt überall.",
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.white,
