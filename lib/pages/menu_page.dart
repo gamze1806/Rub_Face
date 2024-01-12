@@ -38,6 +38,57 @@ class _MenuPageState extends State<MenuPage> {
         price: "€ 39",
         rating: "4,3",
         details: () {},
+      ),
+      EventTile(
+        name: "Mask of fire",
+        imagePath: "lib/images/RM1.png",
+        price: "€${cartModel.festivalPrice}",
+        rating: "5",
+        details: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EventPage(
+                eventName: "Mask of fire",
+                imagePath: "lib/images/RM1.png",
+                description:
+                    "Egal ob für einen Maskenball oder Karnevall, unsere "
+                    '"Mask of fire"'
+                    " repräsentiert dich überall perfekt für den Anlass.",
+                price: "€ ${cartModel.festivalPrice}",
+                rating: '10',
+                //addProduct: cartModel.addNudelSuppe,
+                removeProduct: cartModel.removeNudelSuppe,
+              ),
+            ),
+          );
+        },
+        //onAddToCart: () => cartModel.addNudelSuppe(),
+      ),
+      EventTile(
+        name: "Art of spirals",
+        imagePath: "lib/images/S1.png",
+        price: "€17",
+        rating: "5",
+        details: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EventPage(
+                eventName: "Mask of fire",
+                imagePath: "lib/images/S1.png",
+                description:
+                    "Egal ob für einen Maskenball oder Karnevall, unsere "
+                    '"Mask of fire"'
+                    " repräsentiert dich überall perfekt für den Anlass.",
+                price: "€ ${cartModel.nudelPrice}",
+                rating: '10',
+                //addProduct: cartModel.addFestival,
+                removeProduct: cartModel.removeFestival,
+              ),
+            ),
+          );
+        },
       )
     ];
 
@@ -238,85 +289,23 @@ class _MenuPageState extends State<MenuPage> {
       EventTile(
         name: "Mask of fire",
         imagePath: "lib/images/RM1.png",
-        price: "€${cartModel.festivalPrice}",
+        price: "€ ${cartModel.maskPrice}",
         rating: "5",
-        details: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => EventPage(
-                eventName: "Mask of fire",
-                imagePath: "lib/images/RM1.png",
-                description:
-                    "Egal ob für einen Maskenball oder Karnevall, unsere "
-                    '"Mask of fire"'
-                    " repräsentiert dich überall perfekt für den Anlass.",
-                price: "€ ${cartModel.festivalPrice}",
-                rating: '10',
-                //addProduct: cartModel.addNudelSuppe,
-                removeProduct: cartModel.removeNudelSuppe,
-              ),
-            ),
-          );
-        },
-        //onAddToCart: () => cartModel.addNudelSuppe(),
+        details: () => Navigator.pushNamed(context, '/maskPage'),
       ),
       EventTile(
         name: "Art of spirals",
         imagePath: "lib/images/S1.png",
-        price: "€17",
-        rating: "5",
-        details: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => EventPage(
-                eventName: "Mask of fire",
-                imagePath: "lib/images/S1.png",
-                description:
-                    "Egal ob für einen Maskenball oder Karnevall, unsere "
-                    '"Mask of fire"'
-                    " repräsentiert dich überall perfekt für den Anlass.",
-                price: "€ ${cartModel.nudelPrice}",
-                rating: '10',
-                //addProduct: cartModel.addFestival,
-                removeProduct: cartModel.removeFestival,
-              ),
-            ),
-          );
-        },
+        price: "€ ${cartModel.spiralPrice}",
+        rating: "4",
+        details: () => Navigator.pushNamed(context, '/spiralPage'),
       ),
       EventTile(
         name: "The queen of cat's",
-        imagePath: "lib/images/RM1.png",
-        price: "49",
-        rating: "5",
-        details: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => EventPage(
-                eventName: "The queen of cat's",
-                imagePath: "lib/images/RM1.png",
-                description:
-                    "Egal ob für einen Maskenball oder Karnevall, unsere "
-                    '"Mask of fire"'
-                    " repräsentiert dich überall perfekt für den Anlass.",
-                price: "€ ${cartModel.festivalPrice}",
-                rating: '10',
-                //addProduct: cartModel.addNudelSuppe,
-                removeProduct: cartModel.removeNudelSuppe,
-              ),
-            ),
-          );
-        },
-      ),
-      EventTile(
-        name: "Mount Fuji Tour",
-        imagePath: "lib/images/japan6.png",
-        price: "€ ${cartModel.nudelPrice}",
+        imagePath: "lib/images/C1.png",
+        price: "€ ${cartModel.catPrice}",
         rating: "4",
-        details: () => Navigator.pushNamed(context, '/noodleHarmonyPage'),
+        details: () => Navigator.pushNamed(context, '/catPage'),
       )
     ];
 

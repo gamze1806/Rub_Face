@@ -143,7 +143,7 @@ class EventPage extends StatelessWidget {
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              cartModel.nudelsuppe.toString(),
+                              cartModel.mask.toString(),
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -157,7 +157,7 @@ class EventPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.addNudelSuppe(),
+                                onPressed: () => cartModel.addProduct(1),
                                 //cartModel.addProduct(eventName),
                                 icon: Icon(Icons.add),
                               ),

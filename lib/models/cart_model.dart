@@ -1,59 +1,69 @@
 import 'package:flutter/material.dart';
 
 class CartModel extends ChangeNotifier {
-  int nudelsuppe = 0;
-  int nudelPrice = 17;
-  int festival = 0;
-  int festivalPrice = 39;
+  int mask = 0;
+  int maskPrice = 18;
+  int spiral = 0;
+  int spiralPrice = 23;
+  int cat = 0;
+  int catPrice = 9;
 
-  void addNudelSuppe() {
-    nudelsuppe++;
-    notifyListeners();
-  }
-
-  void removeNudelSuppe() {
-    if (nudelsuppe > 0) {
-      nudelsuppe--;
+  void addProduct(int i) {
+    if (i == 0) {
+      mask++;
+      notifyListeners();
+    } else if (i == 1) {
+      spiral++;
+      notifyListeners();
+    } else if (i == 2) {
+      cat++;
       notifyListeners();
     }
   }
 
-  void clearNudelSuppe() {
-    nudelsuppe = 0;
-    notifyListeners();
-  }
-
-  void addFestival() {
-    festival++;
-    notifyListeners();
-  }
-
-  void removeFestival() {
-    if (festival > 0) {
-      festival--;
-      notifyListeners();
+  void removeProduct(int i) {
+    if (i == 0) {
+      if (mask > 0) {
+        mask--;
+        notifyListeners();
+      }
+    }
+    if (i == 1) {
+      if (spiral > 0) {
+        spiral--;
+        notifyListeners();
+      }
+    }
+    if (i == 2) {
+      if (cat > 0) {
+        cat--;
+        notifyListeners();
+      }
     }
   }
 
-  void clearFestival() {
-    festival = 0;
-    notifyListeners();
-  }
-
-  void addProduct(name) {
-    if (name == "Mask of fire") {
-      addNudelSuppe();
-    } else if (name == "Art of spirals") {
-      addFestival();
+  void clearProduct(int i) {
+    if (i == 0) {
+      mask = 0;
+      notifyListeners();
+    }
+    if (i == 1) {
+      spiral = 0;
+      notifyListeners();
+    }
+    if (i == 2) {
+      cat = 0;
+      notifyListeners();
     }
   }
 
   int totalPrice() {
-    int totalNudelPrice = nudelPrice * nudelsuppe;
-    int totalFestivalPrice = festivalPrice * festival;
-    return totalNudelPrice + totalFestivalPrice;
+    int totalMaskPrice = maskPrice * mask;
+    int totalSpiralPrice = spiralPrice * spiral;
+    int totalCatPrice = catPrice * cat;
+    return totalMaskPrice + totalSpiralPrice + totalCatPrice;
   }
 
-  int get totalItems => nudelsuppe + festival;
+  int get totalItems => mask + spiral + cat;
   int get totalPriceString => totalPrice();
 }

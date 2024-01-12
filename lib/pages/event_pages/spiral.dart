@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:rub_face/components/button.dart';
 import 'package:rub_face/models/cart_model.dart';
 
-class NoodleHarmonyPage extends StatelessWidget {
-  const NoodleHarmonyPage({super.key});
+class ArtOfSpirals extends StatelessWidget {
+  const ArtOfSpirals({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class NoodleHarmonyPage extends StatelessWidget {
         appBar: AppBar(
           title: Text("M A K E R S P A C E"),
           centerTitle: true,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Color.fromARGB(85, 33, 56, 93),
           elevation: 0,
           leading: Icon(Icons.menu),
           actions: [
@@ -36,8 +36,8 @@ class NoodleHarmonyPage extends StatelessWidget {
           children: [
             Center(
               child: Image.asset(
-                'lib/images/japan3.png',
-                height: 220,
+                'lib/images/S1.png',
+                height: 245,
               ),
             ),
             SizedBox(height: 25),
@@ -106,7 +106,7 @@ class NoodleHarmonyPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          "€${cartModel.nudelPrice}",
+                          "€${cartModel.spiralPrice}",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -121,13 +121,13 @@ class NoodleHarmonyPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.removeNudelSuppe(),
+                                onPressed: () => cartModel.removeProduct(1),
                                 icon: Icon(Icons.remove),
                               ),
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              cartModel.nudelsuppe.toString(),
+                              cartModel.spiral.toString(),
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -141,7 +141,7 @@ class NoodleHarmonyPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.addNudelSuppe(),
+                                onPressed: () => cartModel.addProduct(1),
                                 icon: Icon(Icons.add),
                               ),
                             ),

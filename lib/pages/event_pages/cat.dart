@@ -3,10 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:rub_face/components/button.dart';
 import 'package:rub_face/models/cart_model.dart';
 
-class RobotsPage extends StatelessWidget {
-  const RobotsPage({super.key});
-
-  final int i = 0;
+class CatPage extends StatelessWidget {
+  const CatPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +36,7 @@ class RobotsPage extends StatelessWidget {
           children: [
             Center(
               child: Image.asset(
-                'lib/images/RM1.png',
+                'lib/images/C1.png',
                 height: 245,
               ),
             ),
@@ -66,7 +64,7 @@ class RobotsPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: const Text(
-                "Mask of fire",
+                "Queen of cat's",
                 style: TextStyle(
                   fontSize: 28,
                   color: Colors.white,
@@ -108,7 +106,7 @@ class RobotsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          "€${cartModel.maskPrice}",
+                          "€${cartModel.catPrice}",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -123,13 +121,13 @@ class RobotsPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.removeProduct(0),
+                                onPressed: () => cartModel.removeProduct(2),
                                 icon: Icon(Icons.remove),
                               ),
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              cartModel.mask.toString(),
+                              cartModel.cat.toString(),
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -143,7 +141,7 @@ class RobotsPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: IconButton(
-                                onPressed: () => cartModel.addProduct(0),
+                                onPressed: () => cartModel.addProduct(2),
                                 icon: Icon(Icons.add),
                               ),
                             ),

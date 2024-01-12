@@ -23,34 +23,37 @@ class CartPage extends StatelessWidget {
               Expanded(
                   child: ListView(
                 children: [
-                  if (cartModel.nudelsuppe > 0)
+                  if (cartModel.mask > 0)
                     Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 148, 173, 64),
+                        color: Color.fromARGB(255, 249, 249, 247),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: ListTile(
                         title: Text(
-                          "Nudelsuppe",
-                          style: TextStyle(color: Colors.white),
+                          "Mask of fire",
+                          style:
+                              TextStyle(color: Color.fromARGB(200, 33, 56, 93)),
                         ),
                         subtitle: Text(
-                          "€${cartModel.nudelPrice}",
-                          style: TextStyle(color: Colors.white),
+                          "€${cartModel.maskPrice}",
+                          style:
+                              TextStyle(color: Color.fromARGB(200, 33, 56, 93)),
                         ),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              cartModel.nudelsuppe.toString(),
-                              style: TextStyle(color: Colors.white),
+                              cartModel.mask.toString(),
+                              style: TextStyle(
+                                  color: Color.fromARGB(200, 33, 56, 93)),
                             ),
                             SizedBox(width: 10),
                             IconButton(
-                              onPressed: () => cartModel.clearNudelSuppe(),
+                              onPressed: () => cartModel.clearProduct(0),
                               icon: Icon(
                                 Icons.delete,
-                                color: Colors.white,
+                                color: Color.fromARGB(200, 33, 56, 93),
                               ),
                             ),
                           ],
@@ -58,34 +61,75 @@ class CartPage extends StatelessWidget {
                       ),
                     ),
                   SizedBox(height: 15),
-                  if (cartModel.festival > 0)
+                  if (cartModel.spiral > 0)
                     Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 148, 173, 64),
+                        color: Color.fromARGB(255, 249, 250, 248),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: ListTile(
                         title: Text(
-                          "Mitama Matsumi Festival",
-                          style: TextStyle(color: Colors.white),
+                          "Art of spiral's",
+                          style:
+                              TextStyle(color: Color.fromARGB(200, 33, 56, 93)),
                         ),
                         subtitle: Text(
-                          "€${cartModel.festivalPrice}",
-                          style: TextStyle(color: Colors.white),
+                          "€${cartModel.spiralPrice}",
+                          style:
+                              TextStyle(color: Color.fromARGB(200, 33, 56, 93)),
                         ),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              cartModel.festival.toString(),
-                              style: TextStyle(color: Colors.white),
+                              cartModel.spiral.toString(),
+                              style: TextStyle(
+                                  color: Color.fromARGB(200, 33, 56, 93)),
                             ),
                             SizedBox(width: 10),
                             IconButton(
-                              onPressed: () => cartModel.clearFestival(),
+                              onPressed: () => cartModel.clearProduct(1),
                               icon: Icon(
                                 Icons.delete,
-                                color: Colors.white,
+                                color: Color.fromARGB(200, 33, 56, 93),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  SizedBox(height: 15),
+                  if (cartModel.cat > 0)
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 250, 251, 248),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: ListTile(
+                        title: Text(
+                          "Queen of cat's",
+                          style:
+                              TextStyle(color: Color.fromARGB(200, 33, 56, 93)),
+                        ),
+                        subtitle: Text(
+                          "€${cartModel.catPrice}",
+                          style:
+                              TextStyle(color: Color.fromARGB(200, 33, 56, 93)),
+                        ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              cartModel.mask.toString(),
+                              style: TextStyle(
+                                  color: Color.fromARGB(200, 33, 56, 93)),
+                            ),
+                            SizedBox(width: 10),
+                            IconButton(
+                              onPressed: () => cartModel.clearProduct(2),
+                              icon: Icon(
+                                Icons.delete,
+                                color: Color.fromARGB(200, 33, 56, 93),
                               ),
                             ),
                           ],
@@ -93,37 +137,35 @@ class CartPage extends StatelessWidget {
                       ),
                     ),
                   SizedBox(height: 50),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 148, 173, 64),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: ListTile(
-                      title: Text(
-                        "Menge der Events:                           ${cartModel.totalItems}",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      subtitle: Text(
-                        "Gesamtpreis: ${cartModel.totalPriceString}",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(width: 10),
-                          IconButton(
-                            onPressed: () => cartModel.clearFestival(),
-                            icon: Icon(
-                              Icons.delete,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 ],
               )),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 212, 219, 189),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                height: 100,
+                padding: EdgeInsets.all(25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Menge der Events: ${cartModel.totalItems}",
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 33, 56, 93),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15),
+                    ),
+                    Text(
+                      "Gesamtpreis: €${cartModel.totalPriceString}",
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 33, 56, 93),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
