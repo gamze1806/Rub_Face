@@ -16,7 +16,6 @@ class _StartPageState extends State<StartPage> {
   bool _isDarkMode = false;
   int _currentImageIndex = 0;
   late Timer _timer;
-  late PageController _pageController;
 
   List<String> images = [
     "lib/images/M5.png",
@@ -26,7 +25,6 @@ class _StartPageState extends State<StartPage> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
     _startImageTimer();
   }
 
