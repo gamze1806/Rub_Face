@@ -20,7 +20,7 @@ class _StartPageState extends State<StartPage> {
 
   List<String> images = [
     "lib/images/M5.png",
-    "lib/images/M2.png", // Pfad zum zweiten Bild
+    "lib/images/M2.png", // Pfad zum zweiten Bildd
   ];
 
   @override
