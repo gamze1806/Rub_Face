@@ -12,7 +12,8 @@ class StartPage extends StatefulWidget {
   _StartPageState createState() => _StartPageState();
 }
 
-class _StartPageState extends State<StartPage> {
+class _StartPageState extends State<StartPage>
+    with SingleTickerProviderStateMixin {
   bool _isDarkMode = false;
   int _currentImageIndex = 0;
   late Timer _timer;
@@ -22,14 +23,31 @@ class _StartPageState extends State<StartPage> {
     "lib/images/M2.png", // Pfad zum zweiten Bildd
   ];
 
+  late AnimationController _animationController;
+  late Animation<double> _fadeAnimation;
+
   @override
   void initState() {
     super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1),
+    );
+
+    _fadeAnimation = Tween<double>(begin: 1.0, end: 0.0).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+
     _startImageTimer();
   }
 
   void _startImageTimer() {
-    _timer = Timer.periodic(Duration(seconds: 3), (Timer timer) {
+    _timer = Timer.periodic(Duration(seconds: 4), (Timer timer) {
+      _animationController.reverse(from: 1); // Starte den Fade-In Effekt
       setState(() {
         _currentImageIndex = (_currentImageIndex + 1) % images.length;
       });
@@ -38,6 +56,7 @@ class _StartPageState extends State<StartPage> {
 
   void dispose() {
     _timer.cancel();
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -94,9 +113,12 @@ class _StartPageState extends State<StartPage> {
             children: [
               SizedBox(height: 15),
               Center(
-                child: Image.asset(
-                  images[_currentImageIndex],
-                  height: 450,
+                child: FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: Image.asset(
+                    images[_currentImageIndex],
+                    height: 450,
+                  ),
                 ),
               ),
               SizedBox(height: 15),
