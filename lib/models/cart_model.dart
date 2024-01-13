@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CartModel extends ChangeNotifier {
-  int mask = 1;
+  int mask = 0;
   int maskPrice = 18;
-  int spiral = 1;
+  int spiral = 0;
   int spiralPrice = 23;
-  int cat = 1;
+  int cat = 0;
   int catPrice = 9;
-  int spider = 1;
+  int spider = 0;
   int spiderPrice = 25;
 
   void addProduct(int i) {

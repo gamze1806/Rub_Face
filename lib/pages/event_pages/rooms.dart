@@ -32,18 +32,16 @@ class CustomPage extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Transform.rotate(
-            angle: 45 * (pi / 1), // Rotationswinkel in Grad
+            angle: 45 * (pi / 1),
             child: Image.asset(
-              "lib/images/BG4.png", // Pfad zu deinem Hintergrundbild
+              "lib/images/BG8.png",
               fit: BoxFit.cover,
             ),
           ),
-          // Verblasenes Hintergrundbild
           ImageFiltered(
             imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: Container(
-              color:
-                  Colors.white.withOpacity(0.7), // Verblasste Hintergrundfarbe
+              color: Color.fromARGB(251, 233, 239, 249).withOpacity(0.8),
             ),
           ),
           ListView(
@@ -93,7 +91,7 @@ class CustomWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            color: Color.fromARGB(142, 191, 204, 224),
+            color: Color.fromARGB(168, 196, 208, 225),
             padding: EdgeInsets.all(8.0),
             child: Text(
               title,

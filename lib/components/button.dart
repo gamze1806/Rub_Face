@@ -14,11 +14,29 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: event,
-      child: Container(
+      child: Material(
+        elevation: 10.0,
+        borderRadius: BorderRadius.circular(20),
+        color: Color.fromARGB(207, 186, 197, 214),
+        child: Container(
+          padding: EdgeInsets.all(20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                myText,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              /*child: Container(
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-            color: Color.fromARGB(255, 148, 173, 64),
-            borderRadius: BorderRadius.circular(30)),
+            color: Color.fromARGB(207, 186, 197, 214),
+            borderRadius: BorderRadius.circular(20)),
+            
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -36,6 +54,9 @@ class MyButton extends StatelessWidget {
               color: Colors.white,
             ),
           ],
+        ),*/
+            ],
+          ),
         ),
       ),
     );

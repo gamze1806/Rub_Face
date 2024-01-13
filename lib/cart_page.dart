@@ -136,6 +136,44 @@ class CartPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                  SizedBox(height: 15),
+                  if (cartModel.spider > 0)
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 250, 251, 248),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: ListTile(
+                        title: Text(
+                          "Spider's magic",
+                          style:
+                              TextStyle(color: Color.fromARGB(200, 33, 56, 93)),
+                        ),
+                        subtitle: Text(
+                          "€${cartModel.spiderPrice}",
+                          style:
+                              TextStyle(color: Color.fromARGB(200, 33, 56, 93)),
+                        ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              cartModel.spider.toString(),
+                              style: TextStyle(
+                                  color: Color.fromARGB(200, 33, 56, 93)),
+                            ),
+                            SizedBox(width: 10),
+                            IconButton(
+                              onPressed: () => cartModel.clearProduct(3),
+                              icon: Icon(
+                                Icons.delete,
+                                color: Color.fromARGB(200, 33, 56, 93),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   SizedBox(height: 50),
                 ],
               )),

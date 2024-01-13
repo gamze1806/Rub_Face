@@ -1,3 +1,6 @@
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:rub_face/components/button.dart';
 
@@ -39,51 +42,90 @@ class _StartPageState extends State<StartPage> {
       ),
       backgroundColor:
           _isDarkMode ? Colors.black : Color.fromARGB(255, 33, 56, 93),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 15),
-            Center(
-              child: Image.asset(
-                "lib/images/M5.png",
-                height: 450,
-              ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Transform.rotate(
+            angle: 45 * (pi / 1.5), // Rotationswinkel in Grad
+            child: Image.asset(
+              "lib/images/BG7.png", // Pfad zu deinem Hintergrundbild
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Text(
-                "Einzigartig angefertigte Produkte der Makerspace warten auf dich!",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+          ),
+          // Verblasenes Hintergrundbild
+          ImageFiltered(
+            imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            child: Container(
+              color: _isDarkMode
+                  ? Color.fromARGB(255, 0, 5, 14).withOpacity(0.8)
+                  : Color.fromARGB(255, 33, 56, 93).withOpacity(0.8),
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 15),
+              Center(
+                child: Image.asset(
+                  "lib/images/M5.png",
+                  height: 450,
                 ),
               ),
-            ),
-            SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Text(
-                "Starte deine Reise durch die Makerspace und lass dich selbst überzeugen.",
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Material(
+                  //decoration: BoxDecoration(
+                  elevation: 10,
+                  color: Color.fromARGB(255, 24, 41, 68),
+                  borderRadius: BorderRadius.circular(10),
+                  //),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Einzigartig angefertigte Produkte der Makerspace warten auf dich!",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: MyButton(
-                myText: "Reise starten",
-                event: () => Navigator.pushNamed(context, '/menuPage'),
+              SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Material(
+                  //decoration: BoxDecoration(
+                  elevation: 10,
+                  color: Color.fromARGB(255, 24, 41, 68),
+                  borderRadius: BorderRadius.circular(10),
+                  //),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Starte deine Reise durch die Makerspace und lass dich selbst überzeugen.",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ],
-        ),
+              SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: MyButton(
+                  myText: "Reise starten",
+                  event: () => Navigator.pushNamed(context, '/menuPage'),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -1,3 +1,6 @@
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rub_face/components/button.dart';
@@ -79,144 +82,165 @@ class _MenuPageState extends State<MenuPage> {
           ],
           toolbarHeight: 40,
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.all(25),
-                margin: EdgeInsets.symmetric(horizontal: 25),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            Transform.rotate(
+              angle: 45 * (pi / 1.5), // Rotationswinkel in Grad
+              child: Image.asset(
+                "lib/images/BG2.png", // Pfad zu deinem Hintergrundbild
+                fit: BoxFit.cover,
+              ),
+            ),
+            // Verblasenes Hintergrundbild
+            ImageFiltered(
+              imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+              child: Container(
+                color: _isDarkMode
+                    ? Color.fromARGB(255, 2, 15, 37).withOpacity(0.85)
+                    : Color.fromARGB(255, 33, 56, 93).withOpacity(0.85),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(25),
+                    margin: EdgeInsets.symmetric(horizontal: 25),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "32% Nachlass",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 33, 56, 93),
-                          ),
+                        Column(
+                          children: [
+                            Text(
+                              "32% Nachlass",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 33, 56, 93),
+                              ),
+                            ),
+                            SizedBox(height: 15),
+                            MyButton(
+                              myText: "Buchen",
+                              event: () {},
+                            )
+                          ],
                         ),
-                        SizedBox(height: 15),
-                        MyButton(
-                          myText: "Buchen",
-                          event: () {},
-                        )
+                        Image.asset(
+                          "lib/images/SP1.png",
+                          height: 135,
+                        ),
                       ],
                     ),
-                    Image.asset(
-                      "lib/images/SP1.png",
-                      height: 135,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintStyle: TextStyle(color: Colors.white),
-                    hintText: "Suche Produkt",
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
+                  ),
+                  SizedBox(height: 15),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintStyle: TextStyle(color: Colors.white),
+                        hintText: "Suche Produkt",
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-              SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Text(
-                  "Produkte",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              SizedBox(height: 5),
-              Expanded(
-                child: ListView.builder(
-                  itemBuilder: (context, index) => EventList[index],
-                  itemCount: EventList.length,
-                  scrollDirection: Axis.horizontal,
-                ),
-              ),
-              SizedBox(height: 8),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Text(
-                  "Makerspace: Nice To Work!",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              SizedBox(height: 10),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, '/customPage');
-                  print("Bild wurde angeklickt!");
-                },
-                child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 25),
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(210, 186, 197, 214),
-                    borderRadius: BorderRadius.circular(20),
+                  SizedBox(height: 13),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Text(
+                      "Produkte",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.asset(
-                        "lib/images/M2.png",
-                        height: 115,
+                  SizedBox(height: 5),
+                  Expanded(
+                    child: ListView.builder(
+                      itemBuilder: (context, index) => EventList[index],
+                      itemCount: EventList.length,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Text(
+                      "Makerspace: Nice To Work!",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/customPage');
+                      print("Bild wurde angeklickt!");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 25),
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(210, 186, 197, 214),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(
-                            "Etwas Ruhe gewünscht?",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                          Image.asset(
+                            "lib/images/M2.png",
+                            height: 115,
                           ),
-                          SizedBox(height: 10),
-                          Text(
-                            "Chillout Room",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
+                          SizedBox(width: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Etwas Ruhe gewünscht?",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                "Chillout Room",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ],
+                          )
                         ],
-                      )
-                    ],
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(height: 10),
+                ],
               ),
-              SizedBox(height: 10),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
