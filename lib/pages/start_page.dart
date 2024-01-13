@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 
@@ -13,6 +14,35 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage> {
   bool _isDarkMode = false;
+  int _currentImageIndex = 0;
+  late Timer _timer;
+  late PageController _pageController;
+
+  List<String> images = [
+    "lib/images/M5.png",
+    "lib/images/M2.png", // Pfad zum zweiten Bild
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+    _startImageTimer();
+  }
+
+  void _startImageTimer() {
+    _timer = Timer.periodic(Duration(seconds: 3), (Timer timer) {
+      setState(() {
+        _currentImageIndex = (_currentImageIndex + 1) % images.length;
+      });
+    });
+  }
+
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +97,7 @@ class _StartPageState extends State<StartPage> {
               SizedBox(height: 15),
               Center(
                 child: Image.asset(
-                  "lib/images/M5.png",
+                  images[_currentImageIndex],
                   height: 450,
                 ),
               ),
@@ -76,7 +106,7 @@ class _StartPageState extends State<StartPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Material(
                   //decoration: BoxDecoration(
-                  elevation: 10,
+                  elevation: 20,
                   color: Color.fromARGB(255, 24, 41, 68),
                   borderRadius: BorderRadius.circular(10),
                   //),
@@ -98,7 +128,7 @@ class _StartPageState extends State<StartPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Material(
                   //decoration: BoxDecoration(
-                  elevation: 10,
+                  elevation: 20,
                   color: Color.fromARGB(255, 24, 41, 68),
                   borderRadius: BorderRadius.circular(10),
                   //),

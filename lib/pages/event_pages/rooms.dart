@@ -82,23 +82,23 @@ class CustomWidget extends StatelessWidget {
       margin: EdgeInsets.all(10.0),
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-          /*border: Border.all(
-          color: Color.fromARGB(255, 148, 173, 64),
+        border: Border.all(
+          color: Color.fromARGB(255, 246, 247, 248),
           width: 5,
         ),
-        borderRadius: BorderRadius.circular(8.0),*/
-          ),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
       child: Column(
         children: [
           Container(
-            color: Color.fromARGB(168, 196, 208, 225),
+            color: Color.fromARGB(85, 33, 56, 93),
             padding: EdgeInsets.all(8.0),
             child: Text(
               title,
               style: TextStyle(
-                fontSize: 16.0,
+                fontSize: 18.0,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 33, 56, 93),
+                color: Color.fromARGB(255, 247, 248, 249),
               ),
             ),
           ),

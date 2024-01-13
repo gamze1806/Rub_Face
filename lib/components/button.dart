@@ -15,7 +15,7 @@ class MyButton extends StatelessWidget {
     return GestureDetector(
       onTap: event,
       child: Material(
-        elevation: 10.0,
+        elevation: 15.0,
         borderRadius: BorderRadius.circular(20),
         color: Color.fromARGB(207, 186, 197, 214),
         child: Container(
