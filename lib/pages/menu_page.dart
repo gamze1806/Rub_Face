@@ -26,28 +26,6 @@ class _MenuPageState extends State<MenuPage> {
         Provider.of<CartModel>(context); // Zugriff auf CartModel
     List EventList = [
       EventTile(
-        name: "Mask of fire",
-        imagePath: "lib/images/RM1.png",
-        price: "€ ${cartModel.maskPrice}",
-        rating: "5",
-        details: () => Navigator.pushNamed(context, '/maskPage'),
-        colorMode: _isDarkMode
-            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
-            : Colors.white,
-        colorText: _isDarkMode ? Colors.white : Color.fromARGB(255, 33, 56, 93),
-      ),
-      EventTile(
-        name: "Art of spirals",
-        imagePath: "lib/images/S1.png",
-        price: "€ ${cartModel.spiralPrice}",
-        rating: "4,5",
-        details: () => Navigator.pushNamed(context, '/spiralPage'),
-        colorMode: _isDarkMode
-            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
-            : Colors.white,
-        colorText: _isDarkMode ? Colors.white : Color.fromARGB(255, 33, 56, 93),
-      ),
-      EventTile(
         name: "The queen of cat's",
         imagePath: "lib/images/C1.png",
         price: "€ ${cartModel.catPrice}",
@@ -64,6 +42,28 @@ class _MenuPageState extends State<MenuPage> {
         price: "€ ${cartModel.spiderPrice}",
         rating: "4,5",
         details: () => Navigator.pushNamed(context, '/spiderPage'),
+        colorMode: _isDarkMode
+            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
+            : Colors.white,
+        colorText: _isDarkMode ? Colors.white : Color.fromARGB(255, 33, 56, 93),
+      ),
+      EventTile(
+        name: "Mask of fire",
+        imagePath: "lib/images/RM1.png",
+        price: "€ ${cartModel.maskPrice}",
+        rating: "5",
+        details: () => Navigator.pushNamed(context, '/maskPage'),
+        colorMode: _isDarkMode
+            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
+            : Colors.white,
+        colorText: _isDarkMode ? Colors.white : Color.fromARGB(255, 33, 56, 93),
+      ),
+      EventTile(
+        name: "Art of spirals",
+        imagePath: "lib/images/S1.png",
+        price: "€ ${cartModel.spiralPrice}",
+        rating: "4,7",
+        details: () => Navigator.pushNamed(context, '/spiralPage'),
         colorMode: _isDarkMode
             ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
             : Colors.white,

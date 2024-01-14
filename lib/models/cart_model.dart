@@ -12,39 +12,39 @@ class CartModel extends ChangeNotifier {
 
   void addProduct(int i) {
     if (i == 0) {
-      mask++;
-      notifyListeners();
-    } else if (i == 1) {
-      spiral++;
-      notifyListeners();
-    } else if (i == 2) {
       cat++;
       notifyListeners();
-    } else if (i == 3) {
+    } else if (i == 1) {
       spider++;
+      notifyListeners();
+    } else if (i == 2) {
+      mask++;
+      notifyListeners();
+    } else if (i == 3) {
+      spiral++;
       notifyListeners();
     }
   }
 
   void removeProduct(int i) {
     if (i == 0) {
-      if (mask > 0) {
-        mask--;
-        notifyListeners();
-      }
-    } else if (i == 1) {
-      if (spiral > 0) {
-        spiral--;
-        notifyListeners();
-      }
-    } else if (i == 2) {
       if (cat > 0) {
         cat--;
         notifyListeners();
       }
-    } else if (i == 3) {
-      if (cat > 0) {
+    } else if (i == 1) {
+      if (spider > 0) {
         spider--;
+        notifyListeners();
+      }
+    } else if (i == 2) {
+      if (mask > 0) {
+        mask--;
+        notifyListeners();
+      }
+    } else if (i == 3) {
+      if (spiral > 0) {
+        spiral--;
         notifyListeners();
       }
     }
@@ -52,16 +52,16 @@ class CartModel extends ChangeNotifier {
 
   void clearProduct(int i) {
     if (i == 0) {
-      mask = 0;
-      notifyListeners();
-    } else if (i == 1) {
-      spiral = 0;
-      notifyListeners();
-    } else if (i == 2) {
       cat = 0;
       notifyListeners();
-    } else if (i == 3) {
+    } else if (i == 1) {
       spider = 0;
+      notifyListeners();
+    } else if (i == 2) {
+      mask = 0;
+      notifyListeners();
+    } else if (i == 3) {
+      spiral = 0;
       notifyListeners();
     }
   }

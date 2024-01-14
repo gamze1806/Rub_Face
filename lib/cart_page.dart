@@ -52,10 +52,116 @@ class _CartPageState extends State<CartPage> {
               Expanded(
                 child: ListView(
                   children: [
-                    if (cartModel.mask > 0)
+                    if (cartModel.cat > 0)
                       Container(
                         decoration: BoxDecoration(
                           color: Color.fromARGB(255, 249, 249, 247),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: Color.fromARGB(
+                                121, 255, 255, 255), // Farbe des weißen Rands
+                            width: 2.0, // Breite des weißen Rands
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(
+                                  142, 255, 255, 255), // Farbe des Schattens
+                              blurRadius: 5.0, // Unscharfe des Schattens
+                              spreadRadius: 2.0, // Ausbreitung des Schattens
+                              offset:
+                                  Offset(0, 2), // Versatz des Schattens (x, y)
+                            ),
+                          ],
+                        ),
+                        child: ListTile(
+                          title: Text(
+                            "Queen of cats",
+                            style: TextStyle(
+                                color: Color.fromARGB(200, 33, 56, 93)),
+                          ),
+                          subtitle: Text(
+                            "€${cartModel.catPrice}",
+                            style: TextStyle(
+                                color: Color.fromARGB(200, 33, 56, 93)),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                cartModel.cat.toString(),
+                                style: TextStyle(
+                                    color: Color.fromARGB(200, 33, 56, 93)),
+                              ),
+                              SizedBox(width: 10),
+                              IconButton(
+                                onPressed: () => cartModel.clearProduct(0),
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Color.fromARGB(200, 33, 56, 93),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    SizedBox(height: 15),
+                    if (cartModel.spider > 0)
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 249, 250, 248),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: Color.fromARGB(
+                                121, 255, 255, 255), // Farbe des weißen Rands
+                            width: 2.0, // Breite des weißen Rands
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(
+                                  142, 255, 255, 255), // Farbe des Schattens
+                              blurRadius: 5.0, // Unscharfe des Schattens
+                              spreadRadius: 2.0, // Ausbreitung des Schattens
+                              offset:
+                                  Offset(0, 2), // Versatz des Schattens (x, y)
+                            ),
+                          ],
+                        ),
+                        child: ListTile(
+                          title: Text(
+                            "Spider's magic",
+                            style: TextStyle(
+                                color: Color.fromARGB(200, 33, 56, 93)),
+                          ),
+                          subtitle: Text(
+                            "€${cartModel.spiderPrice}",
+                            style: TextStyle(
+                                color: Color.fromARGB(200, 33, 56, 93)),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                cartModel.spider.toString(),
+                                style: TextStyle(
+                                    color: Color.fromARGB(200, 33, 56, 93)),
+                              ),
+                              SizedBox(width: 10),
+                              IconButton(
+                                onPressed: () => cartModel.clearProduct(1),
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Color.fromARGB(200, 33, 56, 93),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    SizedBox(height: 15),
+                    if (cartModel.mask > 0)
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 250, 251, 248),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
                             color: Color.fromARGB(
@@ -94,7 +200,7 @@ class _CartPageState extends State<CartPage> {
                               ),
                               SizedBox(width: 10),
                               IconButton(
-                                onPressed: () => cartModel.clearProduct(0),
+                                onPressed: () => cartModel.clearProduct(2),
                                 icon: Icon(
                                   Icons.delete,
                                   color: Color.fromARGB(200, 33, 56, 93),
@@ -108,7 +214,7 @@ class _CartPageState extends State<CartPage> {
                     if (cartModel.spiral > 0)
                       Container(
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 249, 250, 248),
+                          color: Color.fromARGB(255, 250, 251, 248),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
                             color: Color.fromARGB(
@@ -128,7 +234,7 @@ class _CartPageState extends State<CartPage> {
                         ),
                         child: ListTile(
                           title: Text(
-                            "Art of spiral's",
+                            "Art of spirals",
                             style: TextStyle(
                                 color: Color.fromARGB(200, 33, 56, 93)),
                           ),
@@ -142,112 +248,6 @@ class _CartPageState extends State<CartPage> {
                             children: [
                               Text(
                                 cartModel.spiral.toString(),
-                                style: TextStyle(
-                                    color: Color.fromARGB(200, 33, 56, 93)),
-                              ),
-                              SizedBox(width: 10),
-                              IconButton(
-                                onPressed: () => cartModel.clearProduct(1),
-                                icon: Icon(
-                                  Icons.delete,
-                                  color: Color.fromARGB(200, 33, 56, 93),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    SizedBox(height: 15),
-                    if (cartModel.cat > 0)
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 250, 251, 248),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: Color.fromARGB(
-                                121, 255, 255, 255), // Farbe des weißen Rands
-                            width: 2.0, // Breite des weißen Rands
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromARGB(
-                                  142, 255, 255, 255), // Farbe des Schattens
-                              blurRadius: 5.0, // Unscharfe des Schattens
-                              spreadRadius: 2.0, // Ausbreitung des Schattens
-                              offset:
-                                  Offset(0, 2), // Versatz des Schattens (x, y)
-                            ),
-                          ],
-                        ),
-                        child: ListTile(
-                          title: Text(
-                            "Queen of cat's",
-                            style: TextStyle(
-                                color: Color.fromARGB(200, 33, 56, 93)),
-                          ),
-                          subtitle: Text(
-                            "€${cartModel.catPrice}",
-                            style: TextStyle(
-                                color: Color.fromARGB(200, 33, 56, 93)),
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                cartModel.mask.toString(),
-                                style: TextStyle(
-                                    color: Color.fromARGB(200, 33, 56, 93)),
-                              ),
-                              SizedBox(width: 10),
-                              IconButton(
-                                onPressed: () => cartModel.clearProduct(2),
-                                icon: Icon(
-                                  Icons.delete,
-                                  color: Color.fromARGB(200, 33, 56, 93),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    SizedBox(height: 15),
-                    if (cartModel.spider > 0)
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 250, 251, 248),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: Color.fromARGB(
-                                121, 255, 255, 255), // Farbe des weißen Rands
-                            width: 2.0, // Breite des weißen Rands
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromARGB(
-                                  142, 255, 255, 255), // Farbe des Schattens
-                              blurRadius: 5.0, // Unscharfe des Schattens
-                              spreadRadius: 2.0, // Ausbreitung des Schattens
-                              offset:
-                                  Offset(0, 2), // Versatz des Schattens (x, y)
-                            ),
-                          ],
-                        ),
-                        child: ListTile(
-                          title: Text(
-                            "Spider's magic",
-                            style: TextStyle(
-                                color: Color.fromARGB(200, 33, 56, 93)),
-                          ),
-                          subtitle: Text(
-                            "€${cartModel.spiderPrice}",
-                            style: TextStyle(
-                                color: Color.fromARGB(200, 33, 56, 93)),
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                cartModel.spider.toString(),
                                 style: TextStyle(
                                     color: Color.fromARGB(200, 33, 56, 93)),
                               ),
