@@ -24,7 +24,6 @@ class _CustomPageState extends State<CustomPage> {
         centerTitle: true,
         backgroundColor: Color.fromARGB(85, 33, 56, 93),
         elevation: 0,
-        leading: Icon(Icons.menu),
         actions: [
           IconButton(
             onPressed: () {
