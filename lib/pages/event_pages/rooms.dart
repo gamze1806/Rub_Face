@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'dart:math';
 import 'dart:ui';
-
-import 'package:flutter/material.dart';
+import 'package:rub_face/models/dark_mode_provider.dart';
 
 class CustomPage extends StatefulWidget {
   @override
@@ -12,8 +13,11 @@ bool _isDarkMode = false;
 
 class _CustomPageState extends State<CustomPage> {
   //bool _isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
+    bool _isDarkMode = Provider.of<DarkModeProvider>(context).isDarkMode;
+
     return Scaffold(
       backgroundColor: _isDarkMode
           ? Colors.black
@@ -27,9 +31,8 @@ class _CustomPageState extends State<CustomPage> {
         actions: [
           IconButton(
             onPressed: () {
-              setState(() {
-                _isDarkMode = !_isDarkMode;
-              });
+              Provider.of<DarkModeProvider>(context, listen: false)
+                  .toggleDarkMode();
             },
             icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
           ),

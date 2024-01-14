@@ -28,22 +28,22 @@ class CartModel extends ChangeNotifier {
 
   void removeProduct(int i) {
     if (i == 0) {
-      if (mask > 1) {
+      if (mask > 0) {
         mask--;
         notifyListeners();
       }
     } else if (i == 1) {
-      if (spiral > 1) {
+      if (spiral > 0) {
         spiral--;
         notifyListeners();
       }
     } else if (i == 2) {
-      if (cat > 1) {
+      if (cat > 0) {
         cat--;
         notifyListeners();
       }
     } else if (i == 3) {
-      if (cat > 1) {
+      if (cat > 0) {
         spider--;
         notifyListeners();
       }

@@ -6,7 +6,6 @@ class EventTile extends StatelessWidget {
   final void Function()? details;
   final Color colorMode;
   final Color colorText;
-  //final VoidCallback? onAddToCart;
 
   const EventTile({
     super.key,
@@ -17,7 +16,6 @@ class EventTile extends StatelessWidget {
     this.details,
     required this.colorMode,
     required this.colorText,
-    //this.onAddToCart,
   });
 
   @override

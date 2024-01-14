@@ -9,12 +9,18 @@ import 'package:rub_face/pages/event_pages/spider.dart';
 import 'package:rub_face/pages/event_pages/spiral.dart';
 import 'package:rub_face/pages/menu_page.dart';
 import 'package:rub_face/pages/start_page.dart';
+import 'package:rub_face/models/dark_mode_provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CartModel()),
+        ChangeNotifierProvider(
+            create: (context) =>
+                DarkModeProvider()), // Füge den DarkModeProvider hinzu
+      ],
       child: const RubFace(),
-      create: (context) => CartModel(),
     ),
   );
 }

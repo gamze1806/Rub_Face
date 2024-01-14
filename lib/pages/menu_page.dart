@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:rub_face/components/button.dart';
 import 'package:rub_face/components/event_tile.dart';
 import 'package:rub_face/models/cart_model.dart';
+import 'package:rub_face/models/dark_mode_provider.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -15,10 +16,12 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  bool _isDarkMode = false;
+  //bool _isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
+    DarkModeProvider darkModeProvider = Provider.of<DarkModeProvider>(context);
+    bool _isDarkMode = darkModeProvider.isDarkMode;
     CartModel cartModel =
         Provider.of<CartModel>(context); // Zugriff auf CartModel
     List EventList = [
@@ -81,9 +84,7 @@ class _MenuPageState extends State<MenuPage> {
           actions: [
             IconButton(
               onPressed: () {
-                setState(() {
-                  _isDarkMode = !_isDarkMode;
-                });
+                darkModeProvider.toggleDarkMode();
               },
               icon:
                   _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rub_face/components/button.dart';
 import 'package:rub_face/models/cart_model.dart';
+import 'package:rub_face/models/dark_mode_provider.dart';
 
 class RobotsPage extends StatelessWidget {
   const RobotsPage({super.key});
@@ -10,18 +11,23 @@ class RobotsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DarkModeProvider darkModeProvider = Provider.of<DarkModeProvider>(context);
+    bool _isDarkMode = darkModeProvider.isDarkMode;
     return Consumer<CartModel>(
       builder: (context, cartModel, child) => Scaffold(
-        backgroundColor: Color.fromARGB(255, 186, 197, 214),
+        backgroundColor: _isDarkMode
+            ? Color.fromARGB(152, 7, 17, 32)
+            : Color.fromARGB(255, 186, 197, 214),
         appBar: AppBar(
           title: Text("M A K E R S P A C E"),
           centerTitle: true,
           backgroundColor: Color.fromARGB(85, 33, 56, 93),
           elevation: 0,
-          leading: Icon(Icons.menu),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                darkModeProvider.toggleDarkMode();
+              },
               icon: Icon(Icons.dark_mode),
             ),
             Padding(
@@ -106,7 +112,9 @@ class RobotsPage extends StatelessWidget {
             Expanded(
               child: Container(
                 padding: EdgeInsets.all(25),
-                color: Color.fromARGB(255, 33, 56, 93),
+                color: _isDarkMode
+                    ? Color.fromARGB(255, 11, 27, 52)
+                    : Color.fromARGB(255, 33, 56, 93),
                 child: Column(
                   children: [
                     Row(

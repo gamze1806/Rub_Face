@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rub_face/models/cart_model.dart';
+import 'package:rub_face/models/dark_mode_provider.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -9,11 +10,13 @@ class CartPage extends StatefulWidget {
   _CartPageState createState() => _CartPageState();
 }
 
-bool _isDarkMode = false;
+//bool _isDarkMode = false;
 
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
+    DarkModeProvider darkModeProvider = Provider.of<DarkModeProvider>(context);
+    bool _isDarkMode = darkModeProvider.isDarkMode;
     return Consumer<CartModel>(
       builder: (context, cartModel, child) => Scaffold(
         /*backgroundColor: Color.fromARGB(255, 186, 197, 214),
@@ -35,9 +38,7 @@ class _CartPageState extends State<CartPage> {
           actions: [
             IconButton(
               onPressed: () {
-                setState(() {
-                  _isDarkMode = !_isDarkMode;
-                });
+                darkModeProvider.toggleDarkMode();
               },
               icon:
                   _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
