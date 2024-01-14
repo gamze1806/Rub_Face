@@ -146,8 +146,7 @@ class RobotsPage extends StatelessWidget {
                             color: _isDarkMode
                                 ? Color.fromARGB(255, 11, 27, 52)
                                 : Color.fromARGB(255, 33, 56, 93),
-                            borderRadius: BorderRadius.circular(
-                                20.0), // Hier die Ecken abrunden
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

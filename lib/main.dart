@@ -16,9 +16,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CartModel()),
-        ChangeNotifierProvider(
-            create: (context) =>
-                DarkModeProvider()), // Füge den DarkModeProvider hinzu
+        ChangeNotifierProvider(create: (context) => DarkModeProvider()),
       ],
       child: const RubFace(),
     ),
@@ -28,7 +26,6 @@ void main() {
 class RubFace extends StatelessWidget {
   const RubFace({super.key});
 
-  // This widget is the root of your application.test
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

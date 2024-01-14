@@ -31,30 +31,6 @@ class MyButton extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              /*child: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
-            color: Color.fromARGB(207, 186, 197, 214),
-            borderRadius: BorderRadius.circular(20)),
-            
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              myText,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(width: 10),
-            Icon(
-              Icons.arrow_forward,
-              color: Colors.white,
-            ),
-          ],
-        ),*/
             ],
           ),
         ),

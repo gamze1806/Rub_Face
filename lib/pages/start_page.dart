@@ -14,13 +14,12 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage>
     with SingleTickerProviderStateMixin {
-  //bool _isDarkMode = false;
   int _currentImageIndex = 0;
   late Timer _timer;
 
   List<String> images = [
     "lib/images/M5.png",
-    "lib/images/M2.png", // Pfad zum zweiten Bildd
+    "lib/images/M2.png",
   ];
 
   late AnimationController _animationController;
@@ -47,7 +46,7 @@ class _StartPageState extends State<StartPage>
 
   void _startImageTimer() {
     _timer = Timer.periodic(Duration(seconds: 4), (Timer timer) {
-      _animationController.reverse(from: 1); // Starte den Fade-In Effekt
+      _animationController.reverse(from: 1);
       setState(() {
         _currentImageIndex = (_currentImageIndex + 1) % images.length;
       });
@@ -76,35 +75,22 @@ class _StartPageState extends State<StartPage>
         backgroundColor: Color.fromARGB(210, 186, 197, 214),
         elevation: 4,
         leading: Icon(Icons.menu),
-        /*actions: [
-          IconButton(
-            onPressed: () {
-              setState(() {
-                _isDarkMode = !_isDarkMode;
-              });
-            },
-            icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
-          ),
-        ],*/
       ),
-      backgroundColor: /*_isDarkMode ?*/ Colors.black,
+      backgroundColor: Colors.black,
       body: Stack(
         fit: StackFit.expand,
         children: [
           Transform.rotate(
-            angle: 45 * (pi / 1.5), // Rotationswinkel in Grad
+            angle: 45 * (pi / 1.5),
             child: Image.asset(
-              "lib/images/BG2.png", // Pfad zu deinem Hintergrundbild
+              "lib/images/BG2.png",
               fit: BoxFit.cover,
             ),
           ),
-          // Verblasenes Hintergrundbild
           ImageFiltered(
             imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: Container(
-              color: //_isDarkMode
-                  //  Color.fromARGB(255, 2, 15, 37).withOpacity(0.89)
-                  Color.fromARGB(255, 26, 43, 71).withOpacity(0.85),
+              color: Color.fromARGB(255, 26, 43, 71).withOpacity(0.85),
             ),
           ),
           Column(
@@ -124,11 +110,9 @@ class _StartPageState extends State<StartPage>
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Material(
-                  //decoration: BoxDecoration(
                   elevation: 20,
                   color: Color.fromARGB(255, 24, 41, 68),
                   borderRadius: BorderRadius.circular(10),
-                  //),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -146,11 +130,9 @@ class _StartPageState extends State<StartPage>
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Material(
-                  //decoration: BoxDecoration(
                   elevation: 20,
                   color: Color.fromARGB(255, 24, 41, 68),
                   borderRadius: BorderRadius.circular(10),
-                  //),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -179,26 +161,3 @@ class _StartPageState extends State<StartPage>
     );
   }
 }
-
-
-
-
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Text(
-            //       "JAPAN JOURNEY",
-            //       style: TextStyle(
-            //         fontSize: 38,
-            //         fontWeight: FontWeight.bold,
-            //         color: Colors.white,
-            //       ),
-            //     ),
-            //     // SizedBox(width: 10),
-            //     // Image.asset(
-            //     //   "lib/images/japanflag.png",
-            //     //   height: 30,
-            //     // ),
-            //   ],
-            // ),
-            

@@ -42,7 +42,6 @@ class CatPage extends StatelessWidget {
         ),
         body: Stack(
           children: [
-            // Hintergrundbild
             Positioned.fill(
               child: Transform.rotate(
                 angle: 45 * (pi / 1.5),
@@ -52,7 +51,6 @@ class CatPage extends StatelessWidget {
                 ),
               ),
             ),
-            // Verblasenes Hintergrundbild
             Positioned.fill(
               child: ImageFiltered(
                 imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
@@ -63,10 +61,9 @@ class CatPage extends StatelessWidget {
                 ),
               ),
             ),
-            // Restlicher Inhalt der Seite
             Positioned.fill(
               child: Container(
-                padding: EdgeInsets.all(16.0), // Festes Padding hinzugefügt
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -149,8 +146,7 @@ class CatPage extends StatelessWidget {
                             color: _isDarkMode
                                 ? Color.fromARGB(255, 11, 27, 52)
                                 : Color.fromARGB(255, 33, 56, 93),
-                            borderRadius: BorderRadius.circular(
-                                20.0), // Hier die Ecken abrunden
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

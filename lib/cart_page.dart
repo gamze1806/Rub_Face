@@ -10,8 +10,6 @@ class CartPage extends StatefulWidget {
   _CartPageState createState() => _CartPageState();
 }
 
-//bool _isDarkMode = false;
-
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
@@ -19,17 +17,9 @@ class _CartPageState extends State<CartPage> {
     bool _isDarkMode = darkModeProvider.isDarkMode;
     return Consumer<CartModel>(
       builder: (context, cartModel, child) => Scaffold(
-        /*backgroundColor: Color.fromARGB(255, 186, 197, 214),
-        appBar: AppBar(
-          title: Text("W A R E N K O R B"),
-          centerTitle: true,
-          backgroundColor: Color.fromARGB(200, 33, 56, 93),
-          elevation: 4,
-        ),*/
         backgroundColor: _isDarkMode
             ? Color.fromARGB(152, 7, 17, 32)
-            : Color.fromARGB(
-                255, 162, 180, 206), // Color.fromARGB(255, 191, 204, 224),
+            : Color.fromARGB(255, 162, 180, 206),
         appBar: AppBar(
           title: Text("W A R E N K O R B"),
           centerTitle: true,
@@ -58,18 +48,15 @@ class _CartPageState extends State<CartPage> {
                           color: Color.fromARGB(255, 249, 249, 247),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: Color.fromARGB(
-                                121, 255, 255, 255), // Farbe des weißen Rands
-                            width: 2.0, // Breite des weißen Rands
+                            color: Color.fromARGB(121, 255, 255, 255),
+                            width: 2.0,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Color.fromARGB(
-                                  142, 255, 255, 255), // Farbe des Schattens
-                              blurRadius: 5.0, // Unscharfe des Schattens
-                              spreadRadius: 2.0, // Ausbreitung des Schattens
-                              offset:
-                                  Offset(0, 2), // Versatz des Schattens (x, y)
+                              color: Color.fromARGB(142, 255, 255, 255),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                              offset: Offset(0, 2),
                             ),
                           ],
                         ),
@@ -111,24 +98,21 @@ class _CartPageState extends State<CartPage> {
                           color: Color.fromARGB(255, 249, 250, 248),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: Color.fromARGB(
-                                121, 255, 255, 255), // Farbe des weißen Rands
-                            width: 2.0, // Breite des weißen Rands
+                            color: Color.fromARGB(121, 255, 255, 255),
+                            width: 2.0,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Color.fromARGB(
-                                  142, 255, 255, 255), // Farbe des Schattens
-                              blurRadius: 5.0, // Unscharfe des Schattens
-                              spreadRadius: 2.0, // Ausbreitung des Schattens
-                              offset:
-                                  Offset(0, 2), // Versatz des Schattens (x, y)
+                              color: Color.fromARGB(142, 255, 255, 255),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                              offset: Offset(0, 2),
                             ),
                           ],
                         ),
                         child: ListTile(
                           title: Text(
-                            "Spider's magic",
+                            "Spiders magic",
                             style: TextStyle(
                                 color: Color.fromARGB(200, 33, 56, 93)),
                           ),
@@ -164,18 +148,15 @@ class _CartPageState extends State<CartPage> {
                           color: Color.fromARGB(255, 250, 251, 248),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: Color.fromARGB(
-                                121, 255, 255, 255), // Farbe des weißen Rands
-                            width: 2.0, // Breite des weißen Rands
+                            color: Color.fromARGB(121, 255, 255, 255),
+                            width: 2.0,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Color.fromARGB(
-                                  142, 255, 255, 255), // Farbe des Schattens
-                              blurRadius: 5.0, // Unscharfe des Schattens
-                              spreadRadius: 2.0, // Ausbreitung des Schattens
-                              offset:
-                                  Offset(0, 2), // Versatz des Schattens (x, y)
+                              color: Color.fromARGB(142, 255, 255, 255),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                              offset: Offset(0, 2),
                             ),
                           ],
                         ),
@@ -217,18 +198,15 @@ class _CartPageState extends State<CartPage> {
                           color: Color.fromARGB(255, 250, 251, 248),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: Color.fromARGB(
-                                121, 255, 255, 255), // Farbe des weißen Rands
-                            width: 2.0, // Breite des weißen Rands
+                            color: Color.fromARGB(121, 255, 255, 255),
+                            width: 2.0,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Color.fromARGB(
-                                  142, 255, 255, 255), // Farbe des Schattens
-                              blurRadius: 5.0, // Unscharfe des Schattens
-                              spreadRadius: 2.0, // Ausbreitung des Schattens
-                              offset:
-                                  Offset(0, 2), // Versatz des Schattens (x, y)
+                              color: Color.fromARGB(142, 255, 255, 255),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                              offset: Offset(0, 2),
                             ),
                           ],
                         ),
@@ -272,17 +250,15 @@ class _CartPageState extends State<CartPage> {
                   color: Color.fromARGB(178, 255, 255, 255),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: Color.fromARGB(255, 197, 209,
-                        159), //Color.fromARGB( 121, 255, 255, 255), // Farbe des weißen Rands
-                    width: 3.0, // Breite des weißen Rands
+                    color: Color.fromARGB(255, 197, 209, 159),
+                    width: 3.0,
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(
-                          142, 255, 255, 255), // Farbe des Schattens
-                      blurRadius: 5.0, // Unscharfe des Schattens
-                      spreadRadius: 3.0, // Ausbreitung des Schattens
-                      offset: Offset(0, 2), // Versatz des Schattens (x, y)
+                      color: Color.fromARGB(142, 255, 255, 255),
+                      blurRadius: 5.0,
+                      spreadRadius: 3.0,
+                      offset: Offset(0, 2),
                     ),
                   ],
                 ),
@@ -292,7 +268,7 @@ class _CartPageState extends State<CartPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Menge der Events:\nGesamtpreis:",
+                      "Menge der Produkte:\nGesamtpreis:",
                       style: TextStyle(
                           color: Color.fromARGB(255, 33, 56, 93),
                           fontWeight: FontWeight.bold,
