@@ -4,6 +4,8 @@ class EventTile extends StatelessWidget {
   final String name, imagePath;
   final String price, rating;
   final void Function()? details;
+  final Color colorMode;
+  final Color colorText;
 
   const EventTile({
     super.key,
@@ -12,6 +14,8 @@ class EventTile extends StatelessWidget {
     required this.price,
     required this.rating,
     this.details,
+    required this.colorMode,
+    required this.colorText,
   });
 
   @override
@@ -19,11 +23,12 @@ class EventTile extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 25),
       padding: EdgeInsets.all(8),
-      width: 200,
+      width: 195,
+      height: 200,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 148, 173, 64),
-        borderRadius: BorderRadius.circular(20),
-      ),
+          color: colorMode,
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Colors.white)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,7 +38,7 @@ class EventTile extends StatelessWidget {
           ),
           Text(
             name,
-            style: TextStyle(fontSize: 18, color: Colors.white),
+            style: TextStyle(fontSize: 18, color: colorText),
           ),
           SizedBox(height: 10),
           Row(
@@ -41,13 +46,13 @@ class EventTile extends StatelessWidget {
             children: [
               Text(
                 price,
-                style: TextStyle(fontSize: 18, color: Colors.white),
+                style: TextStyle(fontSize: 18, color: colorText),
               ),
               Row(
                 children: [
                   Text(
                     rating,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: TextStyle(fontSize: 14, color: colorText),
                   ),
                   Icon(
                     Icons.star,
