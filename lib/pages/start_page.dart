@@ -105,7 +105,7 @@ class _StartPageState extends State<StartPage>
             child: Container(
               color: _isDarkMode
                   ? Color.fromARGB(255, 0, 5, 14).withOpacity(0.8)
-                  : Color.fromARGB(255, 33, 56, 93).withOpacity(0.8),
+                  : Color.fromARGB(255, 20, 34, 58).withOpacity(0.8),
             ),
           ),
           Column(

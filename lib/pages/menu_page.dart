@@ -28,6 +28,10 @@ class _MenuPageState extends State<MenuPage> {
         price: "€ ${cartModel.maskPrice}",
         rating: "5",
         details: () => Navigator.pushNamed(context, '/maskPage'),
+        colorMode: _isDarkMode
+            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
+            : Colors.white,
+        colorText: _isDarkMode ? Colors.white : Color.fromARGB(255, 33, 56, 93),
       ),
       EventTile(
         name: "Art of spirals",
@@ -35,6 +39,10 @@ class _MenuPageState extends State<MenuPage> {
         price: "€ ${cartModel.spiralPrice}",
         rating: "4,5",
         details: () => Navigator.pushNamed(context, '/spiralPage'),
+        colorMode: _isDarkMode
+            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
+            : Colors.white,
+        colorText: _isDarkMode ? Colors.white : Color.fromARGB(255, 33, 56, 93),
       ),
       EventTile(
         name: "The queen of cat's",
@@ -42,6 +50,10 @@ class _MenuPageState extends State<MenuPage> {
         price: "€ ${cartModel.catPrice}",
         rating: "4",
         details: () => Navigator.pushNamed(context, '/catPage'),
+        colorMode: _isDarkMode
+            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
+            : Colors.white,
+        colorText: _isDarkMode ? Colors.white : Color.fromARGB(255, 33, 56, 93),
       ),
       EventTile(
         name: "Spider's magic",
@@ -49,13 +61,17 @@ class _MenuPageState extends State<MenuPage> {
         price: "€ ${cartModel.spiderPrice}",
         rating: "4,5",
         details: () => Navigator.pushNamed(context, '/spiderPage'),
+        colorMode: _isDarkMode
+            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
+            : Colors.white,
+        colorText: _isDarkMode ? Colors.white : Color.fromARGB(255, 33, 56, 93),
       )
     ];
 
     return Consumer<CartModel>(
       builder: (context, cartModel, child) => Scaffold(
         backgroundColor:
-            _isDarkMode ? Colors.black : Color.fromARGB(255, 33, 56, 93),
+            _isDarkMode ? Colors.black : Color.fromARGB(255, 234, 236, 240),
         appBar: AppBar(
           title: Text("M A K E R S P A C E"),
           centerTitle: true,
@@ -110,8 +126,24 @@ class _MenuPageState extends State<MenuPage> {
                     padding: EdgeInsets.all(25),
                     margin: EdgeInsets.symmetric(horizontal: 25),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: _isDarkMode
+                          ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
+                          : Colors.white,
                       borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Color.fromARGB(
+                            121, 255, 255, 255), // Farbe des weißen Rands
+                        width: 2.0, // Breite des weißen Rands
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(
+                              142, 255, 255, 255), // Farbe des Schattens
+                          blurRadius: 5.0, // Unscharfe des Schattens
+                          spreadRadius: 2.0, // Ausbreitung des Schattens
+                          offset: Offset(0, 2), // Versatz des Schattens (x, y)
+                        ),
+                      ],
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -123,7 +155,9 @@ class _MenuPageState extends State<MenuPage> {
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 33, 56, 93),
+                                color: _isDarkMode
+                                    ? Colors.white
+                                    : Color.fromARGB(255, 33, 56, 93),
                               ),
                             ),
                             SizedBox(height: 15),
@@ -195,14 +229,31 @@ class _MenuPageState extends State<MenuPage> {
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, '/customPage');
-                      print("Bild wurde angeklickt!");
+                      //print("Bild wurde angeklickt!");
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 25),
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(210, 186, 197, 214),
+                        color: _isDarkMode
+                            ? Color.fromARGB(255, 0, 5, 14).withOpacity(1)
+                            : Color.fromARGB(210, 186, 197, 214),
                         borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: Color.fromARGB(
+                              121, 255, 255, 255), // Farbe des weißen Rands
+                          width: 1.0, // Breite des weißen Rands
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromARGB(
+                                142, 255, 255, 255), // Farbe des Schattens
+                            blurRadius: 5.0, // Unscharfe des Schattens
+                            spreadRadius: 2.0, // Ausbreitung des Schattens
+                            offset:
+                                Offset(0, 1), // Versatz des Schattens (x, y)
+                          ),
+                        ],
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

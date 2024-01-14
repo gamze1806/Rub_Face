@@ -34,10 +34,13 @@ class ArtOfSpirals extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Image.asset(
-                'lib/images/S1.png',
-                height: 245,
+            Container(
+              height: 245,
+              child: PageView(
+                children: [
+                  Image.asset('lib/images/S1.png'),
+                  Image.asset('lib/images/S2.png'),
+                ],
               ),
             ),
             SizedBox(height: 25),

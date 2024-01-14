@@ -36,10 +36,13 @@ class RobotsPage extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Image.asset(
-                'lib/images/RM1.png',
-                height: 245,
+            Container(
+              height: 245,
+              child: PageView(
+                children: [
+                  Image.asset('lib/images/RM1.png'),
+                  Image.asset('lib/images/RM2.png'),
+                ],
               ),
             ),
             SizedBox(height: 25),
