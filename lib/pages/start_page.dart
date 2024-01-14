@@ -14,7 +14,7 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage>
     with SingleTickerProviderStateMixin {
-  bool _isDarkMode = false;
+  //bool _isDarkMode = false;
   int _currentImageIndex = 0;
   late Timer _timer;
 
@@ -76,7 +76,7 @@ class _StartPageState extends State<StartPage>
         backgroundColor: Color.fromARGB(210, 186, 197, 214),
         elevation: 4,
         leading: Icon(Icons.menu),
-        actions: [
+        /*actions: [
           IconButton(
             onPressed: () {
               setState(() {
@@ -85,17 +85,16 @@ class _StartPageState extends State<StartPage>
             },
             icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
           ),
-        ],
+        ],*/
       ),
-      backgroundColor:
-          _isDarkMode ? Colors.black : Color.fromARGB(255, 33, 56, 93),
+      backgroundColor: /*_isDarkMode ?*/ Colors.black,
       body: Stack(
         fit: StackFit.expand,
         children: [
           Transform.rotate(
             angle: 45 * (pi / 1.5), // Rotationswinkel in Grad
             child: Image.asset(
-              "lib/images/BG7.png", // Pfad zu deinem Hintergrundbild
+              "lib/images/BG2.png", // Pfad zu deinem Hintergrundbild
               fit: BoxFit.cover,
             ),
           ),
@@ -103,9 +102,9 @@ class _StartPageState extends State<StartPage>
           ImageFiltered(
             imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: Container(
-              color: _isDarkMode
-                  ? Color.fromARGB(255, 0, 5, 14).withOpacity(0.8)
-                  : Color.fromARGB(255, 20, 34, 58).withOpacity(0.8),
+              color: //_isDarkMode
+                  //  Color.fromARGB(255, 2, 15, 37).withOpacity(0.89)
+                  Color.fromARGB(255, 26, 43, 71).withOpacity(0.85),
             ),
           ),
           Column(

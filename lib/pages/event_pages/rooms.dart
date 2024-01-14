@@ -3,11 +3,22 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class CustomPage extends StatelessWidget {
+class CustomPage extends StatefulWidget {
+  @override
+  _CustomPageState createState() => _CustomPageState();
+}
+
+bool _isDarkMode = false;
+
+class _CustomPageState extends State<CustomPage> {
+  //bool _isDarkMode = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 191, 204, 224),
+      backgroundColor: _isDarkMode
+          ? Colors.black
+          : Color.fromARGB(
+              255, 191, 204, 224), // Color.fromARGB(255, 191, 204, 224),
       appBar: AppBar(
         title: Text("THE PERFECT ROOM"),
         centerTitle: true,
@@ -16,8 +27,12 @@ class CustomPage extends StatelessWidget {
         leading: Icon(Icons.menu),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.dark_mode),
+            onPressed: () {
+              setState(() {
+                _isDarkMode = !_isDarkMode;
+              });
+            },
+            icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
@@ -25,7 +40,7 @@ class CustomPage extends StatelessWidget {
               icon: Icon(Icons.shopping_cart),
               onPressed: () => Navigator.pushNamed(context, '/cartPage'),
             ),
-          )
+          ),
         ],
       ),
       body: Stack(
@@ -41,7 +56,9 @@ class CustomPage extends StatelessWidget {
           ImageFiltered(
             imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: Container(
-              color: Color.fromARGB(251, 233, 239, 249).withOpacity(0.8),
+              color: _isDarkMode
+                  ? Color.fromARGB(255, 2, 15, 37).withOpacity(0.85)
+                  : Color.fromARGB(255, 33, 56, 93).withOpacity(0.85),
             ),
           ),
           ListView(
@@ -91,7 +108,8 @@ class CustomWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            color: Color.fromARGB(85, 33, 56, 93),
+            color: Color.fromARGB(84, 214, 221, 233),
+            //Color.fromARGB(85, 33, 56, 93),
             padding: EdgeInsets.all(8.0),
             child: Text(
               title,
